@@ -22,6 +22,9 @@ const MedicationPage = () => {
                     <li key={med._id}>{med.medication_name} - {med.dosage}</li>
                 ))}
             </ul>
+            <footer className="Emergency_footer">
+                <p>&copy; Conestoga College</p>
+            </footer>
         </div>
     );
 };

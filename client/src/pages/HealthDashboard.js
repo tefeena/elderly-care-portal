@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './Emergency.css'; 
 
 const HealthDashboard = () => {
     const [healthData, setHealthData] = useState({});
@@ -11,12 +13,30 @@ const HealthDashboard = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Health Dashboard</h2>
-            <p>Blood Pressure: {healthData.blood_pressure}</p>
-            <p>Heart Rate: {healthData.heart_rate} BPM</p>
-            <p>Glucose Level: {healthData.glucose_level} mg/dL</p>
-            <p>Temperature: {healthData.temperature} °C</p>
+        <div className="Emergency_container">
+       
+            <nav className="Emergency_navbar">
+                <h1 className="Emergency_logo">Elderly Care</h1>
+                <div className="Emergency_nav-links">
+                    <Link to="/">Home</Link>
+                    <Link to="/caregivers">Caregivers</Link>
+                    <Link to="/health-dashboard">Dashboard</Link>
+                    <Link to="/login" className="Emergency_btn Emergency_login">Login</Link>
+                    <Link to="/register" className="Emergency_btn Emergency_signup">Sign Up</Link>
+                </div>
+            </nav>
+
+            <section className="Emergency_section">
+                <h2>🩺 Health Dashboard</h2>
+                <p><strong>Blood Pressure:</strong> {healthData.blood_pressure}</p>
+                <p><strong>Heart Rate:</strong> {healthData.heart_rate} BPM</p>
+                <p><strong>Glucose Level:</strong> {healthData.glucose_level} mg/dL</p>
+                <p><strong>Temperature:</strong> {healthData.temperature} °C</p>
+            </section>
+
+            <footer className="Emergency_footer">
+                <p>&copy;Conestoga College</p>
+            </footer>
         </div>
     );
 };

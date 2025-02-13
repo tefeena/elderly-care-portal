@@ -1,0 +1,88 @@
+
+.Emergency_container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  .Emergency_navbar {
+    background-color: #2a3d47;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .Emergency_logo {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .Emergency_nav-links {
+    margin-top: 10px;
+  }
+  
+  .Emergency_nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .Emergency_nav-links a:hover {
+    color: #ffeb3b;
+  }
+
+  .Emergency_section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .Emergency_options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .Emergency_option {
+    width: 30%;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .Emergency_option h3 {
+    color: #333;
+  }
+  
+  .Emergency_call-btn,
+  .Emergency_link {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  .Emergency_call-btn:hover,
+  .Emergency_link:hover {
+    background-color: #0056b3;
+  }
+  
+  .Emergency_footer {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .Emergency_footer a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .Emergency_footer a:hover {
+    text-decoration: underline;
+  }
+  
