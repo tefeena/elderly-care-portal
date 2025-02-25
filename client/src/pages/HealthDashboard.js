@@ -21,6 +21,7 @@ const HealthDashboard = () => {
                     <Link to="/">Home</Link>
                     <Link to="/caregivers">Caregivers</Link>
                     <Link to="/health-dashboard">Dashboard</Link>
+                    <Link to="/emergency">Emergency</Link>
                     <Link to="/login" className="Emergency_btn Emergency_login">Login</Link>
                     <Link to="/register" className="Emergency_btn Emergency_signup">Sign Up</Link>
                 </div>
