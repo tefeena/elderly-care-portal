@@ -42,9 +42,9 @@ const HealthDashboard = () => {
                     <div className="extra-health-info">
                         <h3>📌 Additional Health Insights</h3>
                         <ul>
-                            <li>✔️ Maintain a balanced diet rich in Omega-3.</li>
-                            <li>✔️ Daily 30-minute exercise recommended.</li>
-                            <li>✔️ Reduce salt intake to manage blood pressure.</li>
+                            <li>Maintain a balanced diet rich in Omega-3.</li>
+                            <li>Daily 30-minute exercise recommended.</li>
+                            <li>Reduce salt intake to manage blood pressure.</li>
                             {/* <li>✔️ Regular hydration improves circulation.</li> */}
                         </ul>
                     </div>
