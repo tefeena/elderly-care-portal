@@ -1,6 +1,4 @@
-/* General styles for the entire page */
 
-/* Apply the Lora font globally */
 body {
   font-family: 'Lora', serif;
   margin: 0;
@@ -9,7 +7,6 @@ body {
   color: #333;
 }
 
-/* Apply font to other elements as needed */
 .home-banner,.home-whats, .home-reviews,.home-faq,.home-navbar,.home-features, .home-services {
   font-family: 'Lora', serif;
 }
@@ -20,10 +17,9 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background-color: #D9D9D9;
+  background-color:#e4e4e4;
 }
 
-/* Navbar Styles */
 .home-navbar {
   display: flex;
   justify-content: space-between;
@@ -94,26 +90,42 @@ body {
   transform: scale(0.98);
 }
 
-/* Home Banner */
 .home-banner {
-  background-color: #d6d4d4;
-  color: #fff;
+  background: url('../images/home_banner.jpg') no-repeat center center/cover;
+  color: #fff; /* White text to contrast with the background */
   text-align: center;
-  padding: 80px 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 80px 20px; /* Adjust padding for the height of the banner */
+  background-size: cover; /* Ensures the background covers the whole section */
+  background-position: center; /* Centers the image */
 }
+
+
+.home-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0.9, 0.8, 0.9); /* Semi-transparent black overlay */
+  z-index: 1;
+}
+
+
+
 
 .home-banner h2 {
   font-size: 48px;
   margin-bottom: 20px;
   text-transform: uppercase;
-  color: rgb(22, 22, 22);
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .home-banner p {
   font-size: 20px;
   margin-bottom: 30px;
   color: rgb(1, 1, 1);
+  text-shadow: 2px 2px 5px rgba(254, 254, 254, 0.7);
 }
 
 .home-get-started {
@@ -134,7 +146,6 @@ body {
   transform: scale(0.98);
 }
 
-/* Features Section */
 .home-features {
   display: flex;
   justify-content: space-between;
@@ -172,7 +183,6 @@ body {
   height: 300px;
 }
 
-/* What we can do for you Section */
 .home-whats {
   display: flex;
   flex-direction: column;
@@ -237,7 +247,6 @@ body {
   text-decoration: underline;
 }
 
-/* How Our Services Work */
 .home-services {
   padding: 60px 20px;
   background-color: #fff;
@@ -324,7 +333,6 @@ body {
   margin: 0;
 }
 
-/* User Reviews Section */
 .home-reviews {
   padding: 60px 20px;
   background-color: #f4f4f4;
@@ -364,7 +372,6 @@ body {
   color: #7f8c8d;
 }
 
-/* FAQ Section */
 .home-faq {
   padding: 60px 165px;
   background-color: #fff;
@@ -430,7 +437,6 @@ body {
   color: white;
 }
 
-/* Footer */
 .home-footer {
   text-align: center;
   background-color: #2c3e50;
@@ -439,7 +445,6 @@ body {
   font-size: 16px;
 }
 
-/* Responsive Design for smaller screens */
 @media (max-width: 768px) {
   .home-features {
     flex-direction: column;

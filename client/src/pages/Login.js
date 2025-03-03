@@ -21,8 +21,8 @@ const Login = () => {
     };
 
     return (
-        <div className="Emergency_container">
-            {/* Navbar */}
+        <div className="Login_container">
+         
             <nav className="Emergency_navbar">
             <h1 className="Emergency_logo">Elderly Care</h1>
                 <div className="Emergency_nav-links">
@@ -33,7 +33,6 @@ const Login = () => {
                         </div>
             </nav>
 
-            {/* Login Form */}
             <h1 className='login-title'>Welcome to Login page</h1>
             <div className="login-container">
                

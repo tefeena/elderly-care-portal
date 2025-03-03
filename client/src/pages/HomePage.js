@@ -17,14 +17,12 @@ const HomePage = () => {
         </div>
       </nav>
 
-      {/* Home Banner */}
       <header className="home-banner">
         <h2>Caring for Seniors - Simplifying Care</h2>
         <p>Empowering elderly individuals with safety, healthcare, and independence.</p>
         <Link to="/register" className="home-btn home-get-started">Sign Up With Us</Link>
       </header>
 
-      {/* Features Section */}
       <section className="home-features">
         <div className="features-list">
           <h2>Our Features</h2>
@@ -41,7 +39,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* What we can do for you Section */}
       <section className="home-whats">
   <h2>What can we do for you?</h2>
   <div className="home-whats-content">
@@ -63,7 +60,6 @@ const HomePage = () => {
   </div>
 </section>
 
-      {/* How Our Services Work */}
       <section className="home-services">
         <h2>How Do Our Care Services Work?</h2>
         <div className="service-step">
@@ -95,7 +91,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* User Reviews Section */}
       <section className="home-reviews">
         <h2>User Reviews and Feedback</h2>
         <div className="review-card">
@@ -115,7 +110,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
       <section className="home-faq">
         <h2>Frequently Asked Questions</h2>
 
@@ -153,7 +147,6 @@ const HomePage = () => {
 
       </section>
 
-      {/* Footer */}
       <footer className="home-footer">
         <p>&copy; Conestoga College</p>
       </footer>

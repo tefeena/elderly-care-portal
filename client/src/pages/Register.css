@@ -153,7 +153,6 @@ footer {
     padding: 10px 0;
 }
 
-/* Registration Container */
 .register-container {
     width: 400px;
     margin: 50px auto;
@@ -164,7 +163,6 @@ footer {
     text-align: center;
 }
 
-/* Login Page Styles */
 .login-container {
     width: 350px;
     margin: 80px auto;
@@ -175,21 +173,20 @@ footer {
     text-align: center;
 }
 
-/* Error Message Styles */
 .error-message {
     color: red;
     font-size: 14px;
     margin-bottom: 10px;
 }
 
-/* Select Dropdown */
+
 select.input-field {
-    width: 95%;                /* Ensures it has the same width as the input fields */
-    margin: 8px 0;             /* Same margin for consistent spacing */
-    border: 1px solid #bdc3c7; /* Same border style */
-    border-radius: 5px;       /* Same rounded corners */
-    font-size: 16px;           /* Same font size */
-    appearance: none;          /* Remove default dropdown arrow */
+    width: 95%;               
+    margin: 8px 0;             
+    border: 1px solid #bdc3c7; 
+    border-radius: 5px;    
+    font-size: 16px;         
+    appearance: none;      
     -webkit-appearance: none;
     -moz-appearance: none;
 }
