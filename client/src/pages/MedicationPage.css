@@ -1,0 +1,241 @@
+/* General Styles */
+.medication-container {
+    font-family: "Poppins", sans-serif;
+    background-image: url("../images/Holistic\ Herbal\ Supplements\ Display.jpeg"); /* Adding Background Image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333;
+    min-height: 100vh;
+    padding: 40px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Header */
+.medication-header h1 {
+    font-size: 3rem;
+    color: #003E73;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+/* Medication Form */
+.medication-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    width: 90%;
+    max-width: 900px; /* Wider layout for one-line form */
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.medication-form:hover {
+    transform: scale(1.02);
+}
+
+.medication-form h2 {
+    color: #003E73;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+}
+
+/* One-Line Form Layout */
+.medication-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+/* Input Fields & Select */
+.medication-inputs input,
+.medication-inputs select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    width: 18%;
+}
+
+.medication-inputs input:focus,
+.medication-inputs select:focus {
+    outline: none;
+    border-color: #003E73;
+    box-shadow: 0px 0px 10px rgba(0, 62, 115, 0.4);
+}
+
+/* Adjust width for Notes field (optional, wider) */
+.medication-inputs input[name="notes"] {
+    width: 22%;
+}
+
+/* Add Button */
+.add-btn {
+    background: linear-gradient(to right, #27ae60, #219150);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    white-space: nowrap; /* Prevents button text wrapping */
+}
+
+.add-btn:hover {
+    background: linear-gradient(to right, #219150, #1e8449);
+    transform: scale(1.05);
+}
+
+/* Table Styles */
+.medication-list {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+}
+
+.medication-list h2 {
+    color: #003E73;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.medication-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.medication-list th, 
+.medication-list td {
+    padding: 18px;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.medication-list th {
+    background: #003E73;
+    color: white;
+    text-transform: uppercase;
+}
+
+.medication-list tbody tr:hover {
+    background: #f1f1f1;
+}
+
+/* Edit & Delete Buttons */
+.edit-btn, 
+.delete-btn {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.edit-btn {
+    background: linear-gradient(to right, #f39c12, #e67e22);
+    color: white;
+}
+
+.edit-btn:hover {
+    background: linear-gradient(to right, #e67e22, #d35400);
+    transform: scale(1.05);
+}
+
+.delete-btn {
+    background: linear-gradient(to right, #e74c3c, #c0392b);
+    color: white;
+    margin-left: 5px;
+}
+
+.delete-btn:hover {
+    background: linear-gradient(to right, #c0392b, #a93226);
+    transform: scale(1.05);
+}
+
+/* Footer */
+.medication-footer {
+    padding: 15px;
+    background: #003E73;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Message Alerts */
+.message {
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 15px 0;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.success-msg {
+    background: #27ae60;
+    color: white;
+}
+
+.error-msg {
+    background: #e74c3c;
+    color: white;
+}
+
+/* Responsive Layout for Small Screens */
+@media (max-width: 900px) {
+    .medication-inputs {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .medication-inputs input,
+    .medication-inputs select,
+    .medication-inputs input[name="notes"] {
+        width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -11,6 +11,7 @@ const HomePage = () => {
           <Link to="/">Home</Link>
           <Link to="/caregivers">Caregivers</Link>
           <Link to="/health-dashboard">Dashboard</Link>
+          <Link to="/medications">Medications</Link>
           <Link to="/emergency">Emergency</Link>
           <Link to="/login">Login</Link>
           <Link to="/register">Sign Up</Link>
