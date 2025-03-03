@@ -1,0 +1,198 @@
+/* General Styles */
+.container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+/* Header and Navbar */
+.header {
+    background: #ffffff;
+    color: #ecf0f1;
+    padding: 15px;
+}
+
+.navbar {
+    background: #34495e;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.left-nav {
+    margin-left: 20px;
+}
+
+.right-nav {
+    margin-right: 20px;
+}
+
+.nav-item {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.nav-item:hover {
+    background: #1abc9c;
+}
+
+/* Form and Buttons */
+.input-field {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.register-button,
+.home-button,
+.login-button {
+    width: 95%;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.register-button {
+    background: #1abc9c;
+    color: white;
+}
+
+.register-button:hover {
+    background: #16a085;
+}
+
+.home-button {
+    background: #3498db;
+    color: white;
+}
+
+.home-button:hover {
+    background: #2980b9;
+}
+
+.login-button {
+    background: #1abc9c;
+    color: white;
+}
+
+.login-button:hover {
+    background: #16a085;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+.forgot-password {
+    text-align: right;
+    font-size: 12px;
+    color: #3498db;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+.register-link {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.register-link span {
+    color: #3498db;
+    cursor: pointer;
+}
+
+.register-link span:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    background-color: #2c3e50;
+    color: #fff;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px 0;
+}
+
+/* Registration Container */
+.register-container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Login Page Styles */
+.login-container {
+    width: 350px;
+    margin: 80px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Error Message Styles */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Select Dropdown */
+select.input-field {
+    width: 95%;                /* Ensures it has the same width as the input fields */
+    margin: 8px 0;             /* Same margin for consistent spacing */
+    border: 1px solid #bdc3c7; /* Same border style */
+    border-radius: 5px;       /* Same rounded corners */
+    font-size: 16px;           /* Same font size */
+    appearance: none;          /* Remove default dropdown arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+
+
