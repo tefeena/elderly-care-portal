@@ -1,11 +1,12 @@
 /* Navbar Container */
 .navbar {
-  background: linear-gradient(to right, #003E73, #002a52);
-  padding: 15px 40px;
+  background: rgba(0, 46, 89, 0.8); /* Glassmorphism effect */
+  backdrop-filter: blur(10px); 
+  padding: 15px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
   position: fixed;
   width: 100%;
   top: 0;
@@ -25,21 +26,25 @@
 /* Logo */
 .navbar-logo {
   color: #FFD700;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
-  transition: color 0.3s ease-in-out;
+  letter-spacing: 1px;
+  transition: transform 0.3s ease-in-out;
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7); 
 }
 
+
 .navbar-logo:hover {
-  color: #f39c12;
+  transform: scale(1.1);
+  color: #ffcc00;
 }
 
 /* Navigation Links */
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -48,26 +53,25 @@
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
-  transition: all 0.3s ease-in-out;
   position: relative;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
 }
 
 /* Hover Effect */
 .nav-links a:hover {
   color: #FFD700;
   background: rgba(255, 215, 0, 0.2);
-  box-shadow: 0px 4px 8px rgba(255, 215, 0, 0.3);
+  box-shadow: 0px 4px 12px rgba(255, 215, 0, 0.4);
 }
 
 /* CTA Button */
 .cta-btn {
-  background: linear-gradient(to right, #FFD700, #ffcc00);
-  color: #003E73;
-  padding: 10px 20px;
+  color: #002A52;
+  padding: 12px 22px;
   font-size: 18px;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: bold;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
@@ -75,7 +79,8 @@
 
 .cta-btn:hover {
   background: linear-gradient(to right, #ffcc00, #e6b800);
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.5);
 }
 
 /* Hamburger Menu (For Mobile) */
@@ -83,19 +88,20 @@
   display: none;
   cursor: pointer;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 
 .bar {
-  width: 30px;
+  width: 32px;
   height: 4px;
   background: #FFD700;
+  border-radius: 5px;
   transition: all 0.3s ease-in-out;
 }
 
 /* Transform bars into an "X" when open */
 .menu-toggle.open .bar:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: translateY(9px) rotate(45deg);
 }
 
 .menu-toggle.open .bar:nth-child(2) {
@@ -103,7 +109,7 @@
 }
 
 .menu-toggle.open .bar:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 /* Mobile Responsive */
@@ -117,11 +123,11 @@
     flex-direction: column;
     position: absolute;
     background: rgba(0, 0, 0, 0.9);
-    top: 60px;
+    top: 65px;
     right: 0;
     width: 100%;
     text-align: center;
-    padding: 20px 0;
+    padding: 25px 0;
   }
 
   .nav-links.active {
@@ -129,12 +135,7 @@
   }
 
   .nav-links a {
-    padding: 12px;
-    font-size: 20px;
-  }
-
-  .cta-btn {
-    padding: 12px;
-    font-size: 20px;
+    padding: 15px;
+    font-size: 22px;
   }
 }
