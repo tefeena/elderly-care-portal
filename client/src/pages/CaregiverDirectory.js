@@ -10,7 +10,7 @@ const CaregiverDirectory = () => {
 
       {/* Banner Section */}
       <header className="caregiver-banner">
-        <h1>IN-HOME CAREGIVERS</h1>
+        <h3>IN-HOME CAREGIVERS</h3>
       </header>
 
       {/* Qualified Caregivers Section */}
