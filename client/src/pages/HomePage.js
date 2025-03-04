@@ -1,122 +1,157 @@
 import { Link } from "react-router-dom"; 
 import "./HomePage.css";
-
+import Navbar from "./Navbar";
 const HomePage = () => {
   return (
     <div className="home-container">
       {/* Navbar */}
-      <nav className="home-navbar">
-        <h1 className="home-logo">Elderly Care</h1>
-        <div className="home-nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/caregivers">Caregivers</Link>
-          <Link to="/health-dashboard">Dashboard</Link>
-          <Link to="/medications">Medications</Link>
-          <Link to="/emergency">Emergency</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Sign Up</Link>
-        </div>
-      </nav>
+      <Navbar /> 
 
+      {/* Home Banner */}
       <header className="home-banner">
-        <h2>Caring for Seniors - Simplifying Care</h2>
-        <p>Empowering elderly individuals with safety, healthcare, and independence.</p>
-        <Link to="/register" className="home-btn home-get-started">Sign Up With Us</Link>
+        <div className="home-banner-overlay">
+          <h2>Caring for Seniors with Compassion</h2>
+          <p>Empowering elderly individuals with safety, healthcare, and independence.</p>
+          <Link to="/register" className="home-btn home-get-started">Join Us Today</Link>
+        </div>
       </header>
 
+
+
+     {/* Features Section */}
       <section className="home-features">
-        <div className="features-list">
+        <div className="features-content">
           <h2>Our Features</h2>
+          <p>Providing elderly care with efficiency and simplicity. Our platform ensures safety, real-time tracking, and effortless assistance.</p>
           <ul>
-            <li>📅 Medication Reminders</li>
-            <li>👩‍⚕️ Caregiver Directory</li>
-            <li>📊 Health Monitoring</li>
-            <li>📱 Easy-to-Use Interface</li>
-            <li>⏰ Real-time Notifications</li>
+            <li><span>Medication Reminders</span> - Never miss a dose with automated reminders.</li>
+            <li><span>Caregiver Directory</span> - Easily connect with trusted professionals.</li>
+            <li><span>Health Monitoring</span> - Track vital health metrics in real-time.</li>
+            <li><span>Easy-to-Use Interface</span> - Designed for seniors and caregivers alike.</li>
+            <li><span>Real-time Notifications</span> - Stay updated with live alerts and assistance.</li>
           </ul>
         </div>
         <div className="features-image">
-          <img src={require("../images/Features.webp")} alt="Features" />
+          <img src={require("../images/TheSereneGardener.jpeg")} alt="Features" />
         </div>
       </section>
 
-      <section className="home-whats">
-  <h2>What can we do for you?</h2>
-  <div className="home-whats-content">
-    <div className="home-what">
-      <h3>📅 Medication Management</h3>
-      <p>Set reminders for medications and track schedules with ease.</p>
-      <Link to="/MedicationPage">Learn More →</Link>
-    </div>
-    <div className="home-what">
-      <h3>👩‍⚕️ Caregiver Directory</h3>
-      <p>Find and book trusted caregivers for assistance.</p>
-      <Link to="/caregivers">Find Caregivers →</Link>
-    </div>
-    <div className="home-what">
-      <h3>📊 Health Dashboard</h3>
-      <p>Monitor health metrics and get real-time insights.</p>
-      <Link to="/health-dashboard">View Dashboard →</Link>
-    </div>
-  </div>
-</section>
 
-      <section className="home-services">
-        <h2>How Do Our Care Services Work?</h2>
-        <div className="service-step">
-          <img src={require("../images/Step1.jpg")} alt="Step 1" />
-          <div class= "right=section">
-          <h3>Register and set up your profile</h3>
-          <button className="service-btn">
-          <a href="/register" className="btn-link">Get Started</a>
-         </button>
+
+     {/* What we can do for you Section */}
+    <section className="home-whats">
+      <h2>What Can We Do For You?</h2>
+      <div className="home-whats-content">
+        <div className="home-what">
+          <img src={require("../images/medication.jpeg")} alt="Medication Management" />
+          <h3>Medication Management</h3>
+          <p>Set reminders for medications and track schedules with ease.</p>
+          <Link to="/medications">Learn More →</Link>
         </div>
+        <div className="home-what">
+          <img src={require("../images/caregiver.jpeg")} alt="Caregiver Directory" />
+          <h3>Caregiver Directory</h3>
+          <p>Find and book trusted caregivers for assistance.</p>
+          <Link to="/caregivers">Find Caregivers →</Link>
         </div>
-        <div className="service-step">
-          <img src={require("../images/Step2.jpg")} alt="Step 2" />
-          <div class= "right=section">
-          <h3>Choose services and caregivers</h3>
-          <button className="service-btn">
-          <a href="/caregivers" className="btn-link">View Services and Caregivers</a>
-         </button>
+        <div className="home-what">
+          <img src={require("../images/health-dashboard.jpeg")} alt="Health Dashboard" />
+          <h3>Health Dashboard</h3>
+          <p>Monitor health metrics and get real-time insights.</p>
+          <Link to="/health-dashboard">View Dashboard →</Link>
+        </div>
+      </div>
+    </section>
+
+
+     {/* How Our Services Work */}
+    <section className="home-services">
+      <h2>How Do Our Care Services Work?</h2>
+      <div className="service-step">
+        <div className="service-text">
+          <h3>Register and Set Up Your Profile</h3>
+          <p>Create your account and personalize your profile to get the best care options tailored for you.</p>
+          <Link to="/register" className="service-btn">Get Started</Link>
+        </div>
+        <div className="service-image">
+          <img src={require("../images/step1.jpeg")} alt="Register and Set Up Your Profile" />
+        </div>
+      </div>
+
+      <div className="service-step reverse">
+        <div className="service-text">
+          <h3>Choose Services and Caregivers</h3>
+          <p>Browse our directory and find trusted caregivers or services that suit your needs.</p>
+          <Link to="/caregivers" className="service-btn">View Services</Link>
+        </div>
+        <div className="service-image">
+          <img src={require("../images/step2.jpeg")} alt="Choose Services and Caregivers" />
+        </div>
+      </div>
+
+      <div className="service-step">
+        <div className="service-text">
+          <h3>Monitor Health and Stay Connected</h3>
+          <p>Keep track of health metrics and stay in touch with caregivers and loved ones.</p>
+          <Link to="/health-dashboard" className="service-btn">Go to Dashboard</Link>
+        </div>
+        <div className="service-image">
+          <img src={require("../images/step3.jpeg")} alt="Monitor Health and Stay Connected" />
+        </div>
+      </div>
+    </section>
+
+
+     {/* User Reviews Section */}
+    <section className="home-reviews">
+      <h2>What Our Users Say</h2>
+      <div className="reviews-container">
+        <div className="review-card">
+          <div className="review-header">
+            <img src={require("../images/User1.avif")} alt="User 1" />
+            <div className="user-info">
+              <h3>Sarah Thompson</h3>
+              <img src={require("../images/Stars.png")} alt="User 1 Stars" />
+            </div>
           </div>
+          <p>"This platform has been a game-changer for my parents! The reminders are lifesaving, and the caregivers are incredibly professional. It has truly made elderly care effortless and reliable."</p>
         </div>
-        <div className="service-step">
-          <img src={require("../images/Step3.jpg")} alt="Step 3" />
-          <div class= "right=section">
-          <h3>Monitor health and stay connected</h3>
-          <button className="service-btn">
-          <a href="/health-dashboard" className="btn-link">Go to Your Dashboard</a>
-         </button>
+
+        <div className="review-card">
+          <div className="review-header">
+            <img src={require("../images/User2.png")} alt="User 2" />
+            <div className="user-info">
+              <h3>David Johnson</h3>
+              <img src={require("../images/Stars.png")} alt="User 2 Stars" />
+            </div>
           </div>
+          <p>"The health monitoring features are fantastic! I can now check on my grandmother's well-being from anywhere. It’s super easy to use, and I feel reassured knowing she’s in good hands."</p>
         </div>
-      </section>
 
-      <section className="home-reviews">
-        <h2>User Reviews and Feedback</h2>
         <div className="review-card">
-          <img src={require("../images/User1.avif")} alt="User 1" />
-          <img src={require("../images/Stars.png")} alt="User 1 Stars" />
-          <p>"Excellent service, very helpful for my parents! The platform has really improved their quality of life, helping them stay more independent and engaged. The medication reminders are spot-on, and the caregivers have been amazing. Highly recommend it to anyone looking for an easy and reliable way to manage elderly care."</p>
+          <div className="review-header">
+            <img src={require("../images/User3.png")} alt="User 3" />
+            <div className="user-info">
+              <h3>Emily Carter</h3>
+              <img src={require("../images/Stars.png")} alt="User 3 Stars" />
+            </div>
+          </div>
+          <p>"Highly recommend this platform! It has brought me peace of mind knowing my father is always connected to caregivers. The app is user-friendly, even for seniors who aren’t tech-savvy!"</p>
         </div>
-        <div className="review-card">
-          <img src={require("../images/User2.png")} alt="User 2" />
-          <img src={require("../images/Stars.png")} alt="User 2 Stars" />
-          <p>"A great way to manage elderly care remotely. I was struggling to find reliable caregivers for my grandmother, but this platform made it easy. The health monitoring features are very helpful, and I feel much more confident about her well-being now. It's also incredibly user-friendly, even for seniors who aren't tech-savvy."</p>
-        </div>
-        <div className="review-card">
-          <img src={require("../images/User3.png")} alt="User 3" />
-          <img src={require("../images/Stars.png")} alt="User 3 Stars" />
-          <p>"Highly recommend this for elderly individuals. My father has been using the platform for a few months, and it's made a world of difference. It's comforting to know that he is always connected to caregivers and health services. The app is easy for him to use, and it’s also great for monitoring his health remotely."</p>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section className="home-faq">
-        <h2>Frequently Asked Questions</h2>
 
+
+     {/* FAQ Section */}
+    <section className="home-faq">
+      <h2>Frequently Asked Questions</h2>
+      <div className="faq-container">
         <div className="faq-item">
           <input type="checkbox" id="faq1" />
-          <label htmlFor="faq1">What services are available for caregivers?</label>
+          <label htmlFor="faq1" className="faq-question">
+            What services are available for caregivers? <span className="faq-icon">+</span>
+          </label>
           <div className="faq-answer">
             <p>We offer a variety of services for caregivers including scheduling assistance, access to training resources, and tools to connect with elderly clients in need of care. You can also find client reviews to help you make the best choices for your caregiving career.</p>
           </div>
@@ -124,7 +159,9 @@ const HomePage = () => {
 
         <div className="faq-item">
           <input type="checkbox" id="faq2" />
-          <label htmlFor="faq2">How do I set up medication reminders?</label>
+          <label htmlFor="faq2" className="faq-question">
+            How do I set up medication reminders? <span className="faq-icon">+</span>
+          </label>
           <div className="faq-answer">
             <p>Setting up medication reminders is simple. After creating your profile, navigate to the "Medications" section, where you can add each of your medications, dosage, and reminder times. You will receive automatic notifications for each scheduled dose.</p>
           </div>
@@ -132,7 +169,9 @@ const HomePage = () => {
 
         <div className="faq-item">
           <input type="checkbox" id="faq3" />
-          <label htmlFor="faq3">Can I track my elderly loved one's health metrics?</label>
+          <label htmlFor="faq3" className="faq-question">
+            Can I track my elderly loved one's health metrics? <span className="faq-icon">+</span>
+          </label>
           <div className="faq-answer">
             <p>Yes! Our platform provides the option to track various health metrics such as blood pressure, heart rate, and blood sugar levels. The health dashboard offers a comprehensive view of their well-being and alerts you if any readings fall outside of normal ranges.</p>
           </div>
@@ -140,14 +179,18 @@ const HomePage = () => {
 
         <div className="faq-item">
           <input type="checkbox" id="faq4" />
-          <label htmlFor="faq4">How do I contact emergency services?</label>
+          <label htmlFor="faq4" className="faq-question">
+            How do I contact emergency services? <span className="faq-icon">+</span>
+          </label>
           <div className="faq-answer">
             <p>If you’re in an emergency situation, you can contact local emergency services directly through our "Emergency" page. Additionally, caregivers and family members can be alerted if immediate assistance is needed.</p>
           </div>
         </div>
+      </div>
+    </section>
 
-      </section>
 
+      {/* Footer */}
       <footer className="home-footer">
         <p>&copy; Conestoga College</p>
       </footer>

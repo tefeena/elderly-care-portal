@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import './Register.css'; // Using the same styles
 import './Emergency.css';
+import Navbar from "./Navbar";
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -23,15 +24,9 @@ const Login = () => {
     return (
         <div className="Login_container">
          
-            <nav className="Emergency_navbar">
-            <h1 className="Emergency_logo">Elderly Care</h1>
-                <div className="Emergency_nav-links">
-                          <Link to="/">Home</Link>
-                          <Link to="/emergency">Emergency</Link>
-                          <Link to="/login" className="Emergency_btn Emergency_login">Login</Link>
-                          <Link to="/register" className="Emergency_btn Emergency_signup">Sign Up</Link>
-                        </div>
-            </nav>
+          {/* Navbar */}
+            <Navbar />
+
 
             <h1 className='login-title'>Welcome to Login page</h1>
             <div className="login-container">
@@ -60,9 +55,7 @@ const Login = () => {
                     Don't have an account? <span onClick={() => navigate('/register')}>Register here</span>
                 </p>
             </div>
-                <footer className="Emergency_footer">
-                    <p>&copy; Conestoga College</p>
-                </footer>
+                
         </div>
     );
 };

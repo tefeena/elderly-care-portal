@@ -2,22 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaRegClock } from 'react-icons/fa';
 import './HealthDashboard.css';
+import Navbar from "./Navbar";
 
 const HealthDashboard = () => {
     return (
         <div className="Emergency_container">
-            {/* Navbar */}
-            <nav className="Emergency_navbar">
-                <h1 className="Emergency_logo">Elderly Care</h1>
-                <div className="Emergency_nav-links">
-                    <Link to="/">Home</Link>
-                    <Link to="/caregivers">Caregivers</Link>
-                    <Link to="/health-dashboard">Dashboard</Link>
-                    <Link to="/emergency">Emergency</Link>
-                    <Link to="/login" className="Emergency_btn Emergency_login">Login</Link>
-                    <Link to="/register" className="Emergency_btn Emergency_signup">Sign Up</Link>
-                </div>
-            </nav>
+             {/* Navbar */}
+            <Navbar />
 
             {/* Main Section */}
             <section className="main-section">

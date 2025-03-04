@@ -1,0 +1,140 @@
+/* Navbar Container */
+.navbar {
+  background: linear-gradient(to right, #003E73, #002a52);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Navbar Inner Content */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Logo */
+.navbar-logo {
+  color: #FFD700;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-logo:hover {
+  color: #f39c12;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+/* Hover Effect */
+.nav-links a:hover {
+  color: #FFD700;
+  background: rgba(255, 215, 0, 0.2);
+  box-shadow: 0px 4px 8px rgba(255, 215, 0, 0.3);
+}
+
+/* CTA Button */
+.cta-btn {
+  background: linear-gradient(to right, #FFD700, #ffcc00);
+  color: #003E73;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(to right, #ffcc00, #e6b800);
+  transform: scale(1.05);
+}
+
+/* Hamburger Menu (For Mobile) */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bar {
+  width: 30px;
+  height: 4px;
+  background: #FFD700;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Transform bars into an "X" when open */
+.menu-toggle.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px;
+    font-size: 20px;
+  }
+
+  .cta-btn {
+    padding: 12px;
+    font-size: 20px;
+  }
+}

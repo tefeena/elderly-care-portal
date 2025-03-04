@@ -146,9 +146,6 @@ const Registration = () => {
             <button onClick={() => navigate('/')} className="home-button">Back to Home</button>
 
             <p>Already have an account? <a href="/login" className="login-link">Login here</a></p>
-            <footer className="Emergency_footer">
-                <p>&copy; Conestoga College</p>
-            </footer>
         </div>
     );
 };

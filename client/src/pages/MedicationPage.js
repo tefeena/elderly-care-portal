@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "animate.css";
 import "./MedicationPage.css";
+import Navbar from "./Navbar";
 
 const MedicationPage = () => {
   const [medications, setMedications] = useState([]);
@@ -116,7 +117,11 @@ const MedicationPage = () => {
   };
 
   return (
+    <div>
+     {/* Navbar */}
+     <Navbar />
     <div className="medication-container animate__animated animate__fadeIn">
+      
       <header className="medication-header">
         <h1>Medication Management</h1>
       </header>
@@ -179,6 +184,7 @@ const MedicationPage = () => {
           </table>
         )}
       </div>
+    </div>
     </div>
   );
 };
