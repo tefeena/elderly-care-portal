@@ -1,26 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Emergency.css";
+import Navbar from "./Navbar";
 
 const EmergencyPage = () => {
   return (
     <div className="Emergency_container">
       
-      <nav className="Emergency_navbar">
-        <h1 className="Emergency_logo">Elderly Care</h1>
-        <div className="Emergency_nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/caregivers">Caregivers</Link>
-          <Link to="/health-dashboard">Dashboard</Link>
-          <Link to="/emergency">Emergency</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Sign Up</Link>
-        </div>
-      </nav>
+      <Navbar /> 
 
     
       <section className="Emergency_banner">
-        <h1>🚨 Emergency Assistance</h1>
+        <h1> Emergency Assistance</h1>
       </section>
 
       <section className="Emergency_access">
@@ -66,11 +57,11 @@ const EmergencyPage = () => {
       <section className="Emergency_contact">
         <div className="Emergency_contact-box">
           <h3>📍 Location</h3>
-          <p>13 king Street, waterloo, Canada</p>
+          <p>13 King Street, Waterloo, Ontario, Canada</p>
         </div>
         <div className="Emergency_contact-box">
           <h3>📞 Contact</h3>
-          <p>+1 274 567 898</p>
+          <p>+1 (274)-567-898</p>
         </div>
         <div className="Emergency_contact-box">
           <h3>📧 Email</h3>
