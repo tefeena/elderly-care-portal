@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar"; 
 import "./CaregiverDirectory.css";
+import Footer from "./Footer";
 
 const CaregiverDirectory = () => {
   return (
@@ -85,10 +86,9 @@ const CaregiverDirectory = () => {
         </div>
       </section>
 
+      
       {/* Footer */}
-      <footer className="caregiver-footer">
-        <p>&copy; 2025 Elderly Care Platform</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

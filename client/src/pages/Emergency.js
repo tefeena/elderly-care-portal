@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Emergency.css";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const EmergencyPage = () => {
   return (
@@ -70,9 +71,9 @@ const EmergencyPage = () => {
       </section>
 
 
-      <footer className="Emergency_footer">
-        <p>&copy; Conestoga College</p>
-      </footer>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

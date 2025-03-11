@@ -6,14 +6,12 @@ const Logout = () => {
 
     useEffect(() => {
         localStorage.removeItem('token'); // Clear auth token
+        window.dispatchEvent(new Event("storage")); 
         alert('Logged out successfully!');
-        navigate('/login');
+        navigate('/login', { replace: true }); // Redirect to login page
     }, [navigate]);
 
-    return <p>Logging out...</p>;
+    return null; 
 };
-<footer className="Emergency_footer">
-    <p>&copy; Conestoga College</p>
-</footer>
 
 export default Logout;

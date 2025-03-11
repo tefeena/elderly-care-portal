@@ -3,7 +3,7 @@ import axios from "axios";
 import "animate.css";
 import "./MedicationPage.css";
 import Navbar from "./Navbar";
-
+import Footer from "./Footer";
 const MedicationPage = () => {
   const [medications, setMedications] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -185,7 +185,11 @@ const MedicationPage = () => {
         )}
       </div>
     </div>
+    
+      {/* Footer */}
+      <Footer />
     </div>
+    
   );
 };
 

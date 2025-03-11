@@ -1,9 +1,32 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import "./Navbar.css";  // Ensure you use the updated Navbar.css
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import "./Navbar.css";
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkAuth = () => {
+      const token = localStorage.getItem("token");
+      setIsLoggedIn(!!token);
+    };
+
+    checkAuth(); 
+
+    window.addEventListener("storage", checkAuth);
+
+    return () => {
+      window.removeEventListener("storage", checkAuth);
+    };
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    window.dispatchEvent(new Event("storage"));
+    navigate("/login", { replace: true }); // Redirect to login
+  };
 
   return (
     <nav className="navbar">
@@ -12,20 +35,17 @@ const Navbar = () => {
           Elderly Care
         </Link>
 
-        <div className={`nav-links ${menuOpen ? "active" : ""}`}>
-          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link to="/caregivers" onClick={() => setMenuOpen(false)}>Caregivers</Link>
-          <Link to="/health-dashboard" onClick={() => setMenuOpen(false)}>Dashboard</Link>
-          <Link to="/emergency" onClick={() => setMenuOpen(false)}>Emergency</Link>
-          <Link to="/medications" onClick={() => setMenuOpen(false)}>Medication</Link>
-          <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
-          <Link to="/register" className="cta-btn" onClick={() => setMenuOpen(false)}>Sign Up</Link>
-        </div>
-
-        <div className={`menu-toggle ${menuOpen ? "open" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
+        <div className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/caregivers">Caregivers</Link>
+          <Link to="/health-dashboard">Dashboard</Link>
+          <Link to="/emergency">Emergency</Link>
+          <Link to="/medications">Medication</Link>
+          {isLoggedIn ? (
+            <button onClick={handleLogout} className="logout-btn">Logout</button>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
         </div>
       </div>
     </nav>

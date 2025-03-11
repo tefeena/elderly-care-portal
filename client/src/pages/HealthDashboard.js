@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaRegClock } from 'react-icons/fa';
 import './HealthDashboard.css';
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const HealthDashboard = () => {
     return (
@@ -135,10 +136,9 @@ const HealthDashboard = () => {
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer className="Emergency_footer">
-                <p>&copy; Conestoga College</p>
-            </footer>
+            
+      {/* Footer */}
+      <Footer />
         </div>
     );
 };

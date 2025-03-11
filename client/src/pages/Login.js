@@ -4,6 +4,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import './Register.css'; // Using the same styles
 import './Emergency.css';
 import Navbar from "./Navbar";
+import Footer from "./Footer";
+
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -55,7 +57,8 @@ const Login = () => {
                     Don't have an account? <span onClick={() => navigate('/register')}>Register here</span>
                 </p>
             </div>
-                
+                {/* Footer */}
+            <Footer />
         </div>
     );
 };
