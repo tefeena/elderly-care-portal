@@ -7,7 +7,7 @@ import Footer from "./Footer";
 const MedicationPage = () => {
   const [medications, setMedications] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [editingId, setEditingId] = useState(null); // Track which medication is being edited
+  const [editingId, setEditingId] = useState(null); 
   const [newMedication, setNewMedication] = useState({
     medication_name: "",
     dosage: "",
@@ -56,51 +56,49 @@ const MedicationPage = () => {
   const handleSubmit = async () => {
     const token = localStorage.getItem("token");
     if (!token) {
-      setMessage({ type: "error", text: "Unauthorized. Please log in." });
-      return;
+        setMessage({ type: "error", text: "Unauthorized. Please log in." });
+        return;
     }
 
     if (!newMedication.medication_name || !newMedication.dosage || !newMedication.time) {
-      setMessage({ type: "error", text: "Please fill in all required fields." });
-      return;
+        setMessage({ type: "error", text: "Please fill in all required fields." });
+        return;
     }
 
     try {
-      if (editingId) {
-        // ✅ Update existing medication
-        const response = await axios.put(
-          `http://localhost:5000/api/medications/update/${editingId}`,
-          newMedication,
-          {
-            headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-          }
-        );
+        if (editingId) {
+            // ✅ Update existing medication
+            const response = await axios.put(
+                `http://localhost:5000/api/medications/update/${editingId}`,
+                newMedication,
+                { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } }
+            );
 
-        console.log("✅ Medication Updated:", response.data);
-        setMessage({ type: "success", text: "Medication updated successfully!" });
+            console.log("✅ Medication Updated:", response.data);
+            setMessage({ type: "success", text: "Medication updated successfully!" });
 
-        // Update state
-        setMedications(medications.map((med) => (med._id === editingId ? response.data.medication : med)));
-      } else {
-        // ✅ Add new medication
-        const response = await axios.post("http://localhost:5000/api/medications/add", newMedication, {
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-        });
+            setMedications(medications.map((med) => (med._id === editingId ? response.data.medication : med)));
+        } else {
+            // ✅ Add new medication
+            const response = await axios.post("http://localhost:5000/api/medications/add", newMedication, {
+                headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+            });
 
-        console.log("✅ Medication Added:", response.data);
-        setMessage({ type: "success", text: "Medication added successfully!" });
+            console.log("✅ Medication Added:", response.data);
+            setMessage({ type: "success", text: "Medication added successfully!" });
 
-        setMedications([...medications, response.data.medication]);
-      }
+            setMedications([...medications, response.data.medication]);
+        }
 
-      // Reset form
-      setNewMedication({ medication_name: "", dosage: "", time: "", frequency: "Daily", notes: "" });
-      setEditingId(null);
+        // Reset form
+        setNewMedication({ medication_name: "", dosage: "", time: "", frequency: "Daily", notes: "" });
+        setEditingId(null);
     } catch (error) {
-      console.error("❌ Error updating medication:", error.response?.data || error);
-      setMessage({ type: "error", text: error.response?.data?.message || "Failed to update medication." });
+        console.error("❌ Error updating medication:", error.response?.data || error);
+        setMessage({ type: "error", text: error.response?.data?.message || "Failed to update medication." });
     }
-  };
+};
+
 
   const deleteMedication = async (id) => {
     try {

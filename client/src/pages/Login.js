@@ -29,8 +29,9 @@ const Login = () => {
           {/* Navbar */}
             <Navbar />
 
-
-            <h1 className='login-title'>Welcome to Login page</h1>
+            <div className="main-container">
+            
+            <div className="login">
             <div className="login-container">
                
                 <h2>Login</h2>
@@ -56,6 +57,8 @@ const Login = () => {
                 <p className="register-link">
                     Don't have an account? <span onClick={() => navigate('/register')}>Register here</span>
                 </p>
+            </div>
+            </div>
             </div>
                 {/* Footer */}
             <Footer />

@@ -1,14 +1,13 @@
 const Medication = require("../models/Medication");
 
-// ✅ Debug Log to Ensure Controller is Loaded
-console.log("✅ Medication Controller Loaded!");
+//  Debug Log to Ensure Controller is Loaded
+console.log(" Medication Controller Loaded!");
 
-// 📌 Add Medication
+// Add Medication
 const addMedication = async (req, res) => {
     try {
         const { medication_name, dosage, time, frequency, notes } = req.body;
 
-        // ✅ Log request payload in backend to check data received
         console.log("📥 Received Medication Data:", req.body);
 
         if (!medication_name || !dosage || !time || !frequency) {
@@ -19,6 +18,19 @@ const addMedication = async (req, res) => {
             return res.status(401).json({ message: "Unauthorized access. Please log in." });
         }
 
+        // 🔍 **Check if medication already exists for the user**
+        const existingMedication = await Medication.findOne({
+            user_id: req.user.id,
+            medication_name: medication_name.trim(),
+            dosage: dosage.trim(),
+            time: time.trim()
+        });
+
+        if (existingMedication) {
+            return res.status(400).json({ message: "Medication already exists. Please update the existing record." });
+        }
+
+        // ✅ Add the new medication
         const medication = new Medication({
             user_id: req.user.id,
             medication_name: medication_name.trim(),
@@ -37,7 +49,8 @@ const addMedication = async (req, res) => {
     }
 };
 
-// 📌 Get All Medications for Logged-in User
+
+// Get All Medications for Logged-in User
 const getMedications = async (req, res) => {
     try {
         if (!req.user || !req.user.id) {
@@ -52,7 +65,7 @@ const getMedications = async (req, res) => {
     }
 };
 
-// 📌 Update Medication
+// Update Medication
 const updateMedication = async (req, res) => {
     try {
         if (!req.user || !req.user.id) {
@@ -91,7 +104,7 @@ const updateMedication = async (req, res) => {
     }
 };
 
-// 📌 Delete Medication
+// Delete Medication
 const deleteMedication = async (req, res) => {
     try {
         if (!req.user || !req.user.id) {
@@ -112,10 +125,10 @@ const deleteMedication = async (req, res) => {
     }
 };
 
-// ✅ Debug: Log exported functions to check if they exist
+//  Debug: Log exported functions to check if they exist
 console.log("🔍 Exporting Controllers:", { addMedication, getMedications, updateMedication, deleteMedication });
 
-// ✅ Ensure all functions are correctly exported
+//  Ensure all functions are correctly exported
 module.exports = {
     addMedication,
     getMedications,
