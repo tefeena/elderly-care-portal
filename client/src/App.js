@@ -8,6 +8,9 @@ import Emergency from './pages/Emergency';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Logout from './pages/Logout'; 
+import AdminDashboard from "./pages/AdminDashboard";
+import CaregiverList from "./pages/CaregiverList";
+import UserList from "./pages/UserList";
 
 const App = () => {
     return (
@@ -21,6 +24,9 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/logout" element={<Logout />} /> 
+                <Route path="/admin-dashboard" element={<AdminDashboard />} />
+                <Route path="/admin/caregivers" element={<CaregiverList />} />
+                <Route path="/admin/users" element={<UserList />} />
             </Routes>
         </Router>
     );

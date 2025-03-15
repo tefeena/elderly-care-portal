@@ -4,15 +4,18 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userRole, setUserRole] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const checkAuth = () => {
       const token = localStorage.getItem("token");
+      const role = localStorage.getItem("role"); 
       setIsLoggedIn(!!token);
+      setUserRole(role);
     };
 
-    checkAuth(); 
+    checkAuth();
 
     window.addEventListener("storage", checkAuth);
 
@@ -23,9 +26,11 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("role"); // Remove user role on logout
     setIsLoggedIn(false);
+    setUserRole(null);
     window.dispatchEvent(new Event("storage"));
-    navigate("/login", { replace: true }); // Redirect to login
+    navigate("/login", { replace: true });
   };
 
   return (
@@ -36,11 +41,25 @@ const Navbar = () => {
         </Link>
 
         <div className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/caregivers">Caregivers</Link>
-          <Link to="/health-dashboard">Dashboard</Link>
-          <Link to="/emergency">Emergency</Link>
-          <Link to="/medications">Medication</Link>
+          {/* If the user is an Admin, show Admin links */}
+          {userRole === "Admin" ? (
+            <>
+              <Link to="/admin-dashboard">Admin Home</Link>
+              <Link to="/admin/caregivers">Caregiver List</Link>
+              <Link to="/admin/users">User List</Link>
+            </>
+          ) : (
+            // If the user is not an Admin, show regular links
+            <>
+              <Link to="/">Home</Link>
+              <Link to="/caregivers">Caregivers</Link>
+              <Link to="/health-dashboard">Dashboard</Link>
+              <Link to="/emergency">Emergency</Link>
+              <Link to="/medications">Medication</Link>
+            </>
+          )}
+
+          {/* Show Login/Logout button based on authentication status */}
           {isLoggedIn ? (
             <button onClick={handleLogout} className="logout-btn">Logout</button>
           ) : (

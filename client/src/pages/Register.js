@@ -10,9 +10,9 @@ const Registration = () => {
         email: '',
         password: '',
         confirmPassword: '',
-        gender: '',
-        phoneNumber: '',
+        role: '', // Added role field
     });
+
     const [error, setError] = useState({});
     const navigate = useNavigate();
 
@@ -38,11 +38,8 @@ const Registration = () => {
         if (user.password !== user.confirmPassword) {
             errors.confirmPassword = "Passwords do not match.";
         }
-        if (!user.gender) {
-            errors.gender = "Please select a gender.";
-        }
-        if (!user.phoneNumber.match(/^\d{10}$/)) {
-            errors.phoneNumber = "Phone number must be 10 digits.";
+        if (!user.role) {
+            errors.role = "Please select a role.";
         }
 
         setError(errors);
@@ -64,7 +61,6 @@ const Registration = () => {
     };
 
     return (
-        
         <div className="register-container">
             <h1>Sign Up</h1>
             <h2>Create an Account</h2>
@@ -119,28 +115,18 @@ const Registration = () => {
             />
             {error.confirmPassword && <p className="error">{error.confirmPassword}</p>}
 
+            {/* Role Selection Dropdown */}
             <select 
-                name="gender" 
-                value={user.gender} 
+                name="role" 
+                value={user.role} 
                 onChange={handleChange} 
                 className="input-field"
             >
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
+                <option value="">Select Role</option>
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
             </select>
-            {error.gender && <p className="error">{error.gender}</p>}
-
-            <input 
-                type="text" 
-                name="phoneNumber" 
-                placeholder="Phone Number" 
-                value={user.phoneNumber} 
-                onChange={handleChange} 
-                className="input-field" 
-            />
-            {error.phoneNumber && <p className="error">{error.phoneNumber}</p>}
+            {error.role && <p className="error">{error.role}</p>}
 
             <button onClick={handleRegister} className="register-button">Submit</button>
             <button onClick={() => navigate('/')} className="home-button">Back to Home</button>

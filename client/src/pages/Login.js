@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom';
-import './Register.css'; // Using the same styles
-import './Emergency.css';
+import { useNavigate } from 'react-router-dom';
+import './Register.css';
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -16,12 +14,21 @@ const Login = () => {
         try {
             const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
             localStorage.setItem('token', res.data.token);
+            localStorage.setItem('role', res.data.user.role); // Store role in localStorage
+
             alert('Login successful!');
-            navigate('/health-dashboard');
+
+            // Redirect based on role
+            if (res.data.user.role === 'Admin') {
+                navigate('/admin-dashboard');
+            } else {
+                navigate('/health-dashboard');
+            }
         } catch (err) {
             alert('Invalid credentials');
         }
     };
+
 
     return (
         <div className="Login_container">
