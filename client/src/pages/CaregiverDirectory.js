@@ -6,6 +6,7 @@ import "./CaregiverDirectory.css";
 
 const CaregiverDirectory = () => {
   const [caregivers, setCaregivers] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [newCaregiver, setNewCaregiver] = useState({
     name: "",
     contact_number: "",
@@ -15,7 +16,12 @@ const CaregiverDirectory = () => {
     availability: "Full-Time",
   });
 
+  // ✅ Check if the user is logged in
   useEffect(() => {
+    const token = localStorage.getItem("token"); // If token exists, user is logged in
+    setIsLoggedIn(!!token);
+
+    // Fetch approved caregivers
     axios
       .get("http://localhost:5000/api/caregivers/")
       .then((response) => setCaregivers(response.data))
@@ -43,15 +49,14 @@ const CaregiverDirectory = () => {
       })
       .catch((error) => {
         console.error("Error registering caregiver:", error.response?.data || error);
-  
+
         if (error.response?.status === 400) {
-          alert(error.response.data.message); // Shows "This email or phone number is already registered."
+          alert(error.response.data.message);
         } else {
           alert("Registration failed. Please try again.");
         }
       });
   };
-  
 
   return (
     <div className="caregiver-container">
@@ -85,47 +90,48 @@ const CaregiverDirectory = () => {
         </div>
       </section>
 
-      {/* Caregiver Registration Form */}
-      <section className="register-caregiver">
-  <div className="caregiver-from-container">
-    <h2>Become a Caregiver</h2>
-    <p className="register-subtext">
-      Join our trusted network and provide compassionate care for those in need.
-    </p>
-    <form onSubmit={handleRegister} className="caregiver-form ">
-      <div className="form-group ">
-        <input type="text" name="name" placeholder="Full Name" value={newCaregiver.name} onChange={handleChange} required />
-      </div>
+      {/* ✅ Show "Become a Caregiver" Form ONLY if the user is NOT logged in */}
+      {!isLoggedIn && (
+        <section className="register-caregiver">
+          <div className="caregiver-form-container">
+            <h2>Become a Caregiver</h2>
+            <p className="register-subtext">
+              Join our trusted network and provide compassionate care for those in need.
+            </p>
+            <form onSubmit={handleRegister} className="caregiver-form">
+              <div className="form-group">
+                <input type="text" name="name" placeholder="Full Name" value={newCaregiver.name} onChange={handleChange} required />
+              </div>
 
-      <div className="form-group">
-        <input type="text" name="contact_number" placeholder="Phone Number" value={newCaregiver.contact_number} onChange={handleChange} required />
-      </div>
+              <div className="form-group">
+                <input type="text" name="contact_number" placeholder="Phone Number" value={newCaregiver.contact_number} onChange={handleChange} required />
+              </div>
 
-      <div className="form-group">
-        <input type="email" name="email" placeholder="Email" value={newCaregiver.email} onChange={handleChange} required />
-      </div>
+              <div className="form-group">
+                <input type="email" name="email" placeholder="Email" value={newCaregiver.email} onChange={handleChange} required />
+              </div>
 
-      <div className="form-group">
-        <input type="number" name="experience" placeholder="Years of Experience" value={newCaregiver.experience} onChange={handleChange} required />
-      </div>
+              <div className="form-group">
+                <input type="number" name="experience" placeholder="Years of Experience" value={newCaregiver.experience} onChange={handleChange} required />
+              </div>
 
-      <div className="form-group">
-        <input type="text" name="certifications" placeholder="Certifications (Optional)" value={newCaregiver.certifications} onChange={handleChange} />
-      </div>
+              <div className="form-group">
+                <input type="text" name="certifications" placeholder="Certifications (Optional)" value={newCaregiver.certifications} onChange={handleChange} />
+              </div>
 
-      <div className="form-group">
-        <select name="availability" value={newCaregiver.availability} onChange={handleChange}>
-          <option value="Full-Time">Full-Time</option>
-          <option value="Part-Time">Part-Time</option>
-          <option value="On-Call">On-Call</option>
-        </select>
-      </div>
+              <div className="form-group">
+                <select name="availability" value={newCaregiver.availability} onChange={handleChange}>
+                  <option value="Full-Time">Full-Time</option>
+                  <option value="Part-Time">Part-Time</option>
+                  <option value="On-Call">On-Call</option>
+                </select>
+              </div>
 
-      <button type="submit" className="submit-btn">Register Now</button>
-    </form>
-  </div>
-</section>
-
+              <button type="submit" className="submit-btn">Register Now</button>
+            </form>
+          </div>
+        </section>
+      )}
 
       {/* Client Caregiver Reviews Section */}
       <section className="caregiver-reviews">
