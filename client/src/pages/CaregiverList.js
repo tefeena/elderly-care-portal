@@ -1,18 +1,36 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Table, Button, Container } from "react-bootstrap";
-import "./AdminDashboard.css";
+import { Table, Button, Container, Spinner } from "react-bootstrap";
 import Navbar from "./Navbar"; 
+import "./AdminDashboard.css";
 
 const CaregiverList = () => {
   const [caregivers, setCaregivers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/caregivers")
-      .then((res) => setCaregivers(res.data))
-      .catch((err) => console.error("Error fetching caregivers", err));
+      .get("http://localhost:5000/api/caregivers/all") // Fetch all caregivers including unapproved
+      .then((res) => {
+        setCaregivers(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching caregivers", err);
+        setLoading(false);
+      });
   }, []);
+
+  const updateCaregiverStatus = (id, status) => {
+    axios
+      .put(`http://localhost:5000/api/caregivers/approve/${id}`, { approved: status })
+      .then(() => {
+        setCaregivers(caregivers.map((caregiver) => 
+          caregiver._id === id ? { ...caregiver, approved: status } : caregiver
+        ));
+      })
+      .catch((err) => console.error("Error updating caregiver status", err));
+  };
 
   const deleteCaregiver = (id) => {
     axios
@@ -22,38 +40,65 @@ const CaregiverList = () => {
   };
 
   return (
-    
     <div className="caregiver-dashboard">
-        <Container>
-         <Navbar />
-      <h2>Caregiver List</h2>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Experience</th>
-            <th>Availability</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {caregivers.map((caregiver) => (
-            <tr key={caregiver._id}>
-              <td>{caregiver.name}</td>
-              <td>{caregiver.experience} years</td>
-              <td>{caregiver.availability}</td>
-              <td>
-                <Button variant="warning">Edit</Button>{" "}
-                <Button variant="danger" onClick={() => deleteCaregiver(caregiver._id)}>
-                  Delete
-                </Button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </Container>
-    </div>);
+      <Navbar />
+      <Container>
+        <h2 className="dashboard-title">Caregiver List</h2>
+
+        {loading ? (
+          <div className="loading-container">
+            <Spinner animation="border" />
+            <p>Loading caregivers...</p>
+          </div>
+        ) : caregivers.length === 0 ? (
+          <p className="no-caregivers">No caregivers found.</p>
+        ) : (
+          <Table striped bordered hover responsive className="caregiver-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Experience</th>
+                <th>Certifications</th>
+                <th>Availability</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {caregivers.map((caregiver) => (
+                <tr key={caregiver._id}>
+                  <td>{caregiver.name}</td>
+                  <td>{caregiver.email}</td>
+                  <td>{caregiver.experience} years</td>
+                  <td>{caregiver.certifications || "N/A"}</td> {/* Show certification or "N/A" */}
+                  <td>{caregiver.availability}</td>
+                  <td>
+                    {caregiver.approved ? (
+                      <span className="status-approved">Approved</span>
+                    ) : (
+                      <span className="status-pending">Pending</span>
+                    )}
+                  </td>
+                  <td className="action-buttons">
+                    {!caregiver.approved && (
+                      <Button variant="success" onClick={() => updateCaregiverStatus(caregiver._id, true)}>
+                        Approve
+                      </Button>
+                    )}
+                    {" "}
+                    <Button variant="danger" onClick={() => deleteCaregiver(caregiver._id)}>
+                      Delete
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        )}
+      </Container>
+    </div>
+  );
 };
 
 export default CaregiverList;

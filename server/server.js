@@ -26,8 +26,12 @@ app.get('/', (req, res) => {
 
 const authRoutes = require('./routes/authRoutes');
 const medicationRoutes = require('./routes/medicationRoutes');
+const caregiverRoutes = require('./routes/caregiverRoutes');
+const userRoutes = require("./routes/userRoutes"); 
 
 app.use('/api/auth', authRoutes);
 app.use('/api/medications', medicationRoutes);
+app.use('/api/caregivers', caregiverRoutes);
+app.use("/api/users", userRoutes);
 
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

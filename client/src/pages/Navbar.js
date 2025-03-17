@@ -10,7 +10,7 @@ const Navbar = () => {
   useEffect(() => {
     const checkAuth = () => {
       const token = localStorage.getItem("token");
-      const role = localStorage.getItem("role"); 
+      const role = localStorage.getItem("role");
       setIsLoggedIn(!!token);
       setUserRole(role);
     };
@@ -26,7 +26,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    localStorage.removeItem("role"); // Remove user role on logout
+    localStorage.removeItem("role");
     setIsLoggedIn(false);
     setUserRole(null);
     window.dispatchEvent(new Event("storage"));
@@ -41,25 +41,32 @@ const Navbar = () => {
         </Link>
 
         <div className="nav-links">
-          {/* If the user is an Admin, show Admin links */}
-          {userRole === "Admin" ? (
+          {/* If Admin is logged in, show Admin-specific pages */}
+          {isLoggedIn && userRole === "Admin" ? (
             <>
-              <Link to="/admin-dashboard">Admin Home</Link>
+              <Link to="/admin-dashboard">Admin Dashboard</Link>
               <Link to="/admin/caregivers">Caregiver List</Link>
               <Link to="/admin/users">User List</Link>
             </>
-          ) : (
-            // If the user is not an Admin, show regular links
+          ) : isLoggedIn ? (
+            // If a regular user is logged in, show user-specific pages
             <>
               <Link to="/">Home</Link>
               <Link to="/caregivers">Caregivers</Link>
-              <Link to="/health-dashboard">Dashboard</Link>
               <Link to="/emergency">Emergency</Link>
+              <Link to="/health-dashboard">Dashboard</Link>
               <Link to="/medications">Medication</Link>
+            </>
+          ) : (
+            // If no one is logged in, show public pages
+            <>
+              <Link to="/">Home</Link>
+              <Link to="/caregivers">Caregivers</Link>
+              <Link to="/emergency">Emergency</Link>
             </>
           )}
 
-          {/* Show Login/Logout button based on authentication status */}
+          {/* Show Logout button if logged in, else show Login link */}
           {isLoggedIn ? (
             <button onClick={handleLogout} className="logout-btn">Logout</button>
           ) : (

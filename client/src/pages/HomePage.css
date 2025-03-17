@@ -737,6 +737,86 @@ body {
   display: block;
 }
 
+/* Quick Access Section */
+.quick-access {
+  padding: 60px 10%;
+  background: linear-gradient(to right, #f9f9f9, #ececec);
+  text-align: center;
+}
+
+.quick-access-container h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #003E73;
+  margin-bottom: 15px;
+}
+
+.quick-access-container p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Grid Layout */
+.quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Quick Action Item */
+.quick-access-item {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.quick-access-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background: #003E73;
+  color: white;
+}
+
+/* Icon Container */
+.icon-container {
+  width: 60px;
+  height: 60px;
+  background: #16a085;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.icon-container img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .quick-access-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .home-faq {

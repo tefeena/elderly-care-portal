@@ -8,6 +8,7 @@ const CaregiverSchema = new mongoose.Schema({
     certifications: { type: String },
     availability: { type: String, enum: ['Full-Time', 'Part-Time', 'On-Call'], required: true },
     rating: { type: Number, default: 5 },
+    approved: { type: Boolean, default: false }, // Admin approval status
     reviews: [{ user_id: mongoose.Schema.Types.ObjectId, review_text: String }]
 }, { timestamps: true });
 

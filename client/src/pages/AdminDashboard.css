@@ -1,21 +1,379 @@
+/* General Admin Dashboard Styles */
 .admin-dashboard {
     background-color: #f8f9fa;
     min-height: 100vh;
-    margin-top:100px;
-    
+    padding: 50px 20px;
+    margin-top: 80px;
 }
 
+/* Stat Cards */
 .stat-card {
     background: white;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease-in-out;
 }
-.caregiver-dashboard{
-    margin-top:100px;
-}
-.user-dashboard{
-    margin-top:100px;
 
+.stat-card:hover {
+    transform: translateY(-5px);
 }
+
+/* Caregiver Dashboard */
+.caregiver-dashboard, 
+.user-dashboard {
+    margin-top: 80px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+/* Dashboard Titles */
+.dashboard-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #003E73;
+    margin-bottom: 30px;
+}
+
+/* Caregiver Table Styling */
+.caregiver-table {
+    width: 90%;
+    margin: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+/* Table Headers */
+.caregiver-table th {
+    background: #003E73;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+/* Table Rows */
+.caregiver-table td {
+    text-align: center;
+    padding: 12px;
+    font-size: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Hover Effect */
+.caregiver-table tbody tr:hover {
+    background: #e3f2fd;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Status Labels */
+.status-approved {
+    background: #28a745;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.status-pending {
+    background: #ff9800;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Action Buttons */
+.action-buttons button {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: none;
+    font-weight: bold;
+}
+
+/* Approve Button */
+button.btn-success {
+    background-color: #28a745;
+}
+
+button.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Reject Button */
+button.btn-danger {
+    background-color: #dc3545;
+}
+
+button.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Edit Button */
+button.btn-warning {
+    background-color: #ffc107;
+}
+
+button.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+/* Delete Button */
+button.btn-delete {
+    background-color: #d9534f;
+}
+
+button.btn-delete:hover {
+    background-color: #c9302c;
+}
+
+/* Loading & No Caregiver Found */
+.loading-container, .no-caregivers {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .caregiver-table {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-title {
+        font-size: 2rem;
+    }
+
+    .caregiver-table th, 
+    .caregiver-table td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .action-buttons button {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-title {
+        font-size: 1.8rem;
+    }
+
+    .caregiver-table th, 
+    .caregiver-table td {
+        font-size: 0.8rem;
+    }
+
+    .action-buttons button {
+        font-size: 0.7rem;
+        padding: 6px 10px;
+    }
+}
+/* User Dashboard */
+.user-dashboard {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+/* Dashboard Title */
+.dashboard-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #003E73;
+    margin-bottom: 30px;
+}
+
+/* User Table */
+.user-table {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Table Headers */
+.user-table th {
+    background: #003E73;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+/* Table Rows */
+.user-table td {
+    text-align: center;
+    padding: 15px;
+    font-size: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Hover Effect */
+.user-table tbody tr:hover {
+    background: #e3f2fd;
+}
+
+/* Status Labels */
+.status-admin {
+    background: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.status-user {
+    background: #ff9800;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Action Buttons */
+.action-buttons button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Edit Button */
+button.btn-warning {
+    background-color: #ffc107;
+    border: none;
+}
+
+button.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+/* Delete Button */
+button.btn-danger {
+    background-color: #d9534f;
+    border: none;
+}
+
+button.btn-danger:hover {
+    background-color: #c9302c;
+}
+
+/* Loading Spinner */
+.loading-container {
+    text-align: center;
+    padding: 40px;
+}
+
+.loading-container p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+/* User Dashboard */
+.user-dashboard {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+/* Dashboard Title */
+.dashboard-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #003E73;
+    margin-bottom: 30px;
+}
+
+/* User Table */
+.user-table {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Table Headers */
+.user-table th {
+    background: #003E73;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+/* Table Rows */
+.user-table td {
+    text-align: center;
+    padding: 15px;
+    font-size: 1rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Hover Effect */
+.user-table tbody tr:hover {
+    background: #e3f2fd;
+}
+
+/* Action Buttons */
+.action-buttons button {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Edit Button */
+button.btn-warning {
+    background-color: #ffc107;
+    border: none;
+}
+
+button.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+/* Delete Button */
+button.btn-danger {
+    background-color: #d9534f;
+    border: none;
+}
+
+button.btn-danger:hover {
+    background-color: #c9302c;
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-header {
+    background: #003E73;
+    color: white;
+}
+
+.modal-footer {
+    border-top: none;
+}
+

@@ -1,71 +1,131 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Navbar from "./Navbar"; 
-import "./CaregiverDirectory.css";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Navbar from "./Navbar";
 import Footer from "./Footer";
+import "./CaregiverDirectory.css";
 
 const CaregiverDirectory = () => {
+  const [caregivers, setCaregivers] = useState([]);
+  const [newCaregiver, setNewCaregiver] = useState({
+    name: "",
+    contact_number: "",
+    email: "",
+    experience: "",
+    certifications: "",
+    availability: "Full-Time",
+  });
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/caregivers/")
+      .then((response) => setCaregivers(response.data))
+      .catch((error) => console.error("Error fetching caregivers:", error));
+  }, []);
+
+  const handleChange = (e) => {
+    setNewCaregiver({ ...newCaregiver, [e.target.name]: e.target.value });
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:5000/api/caregivers/register", newCaregiver)
+      .then(() => {
+        alert("Caregiver registered successfully! Pending admin approval.");
+        setNewCaregiver({
+          name: "",
+          contact_number: "",
+          email: "",
+          experience: "",
+          certifications: "",
+          availability: "Full-Time",
+        });
+      })
+      .catch((error) => {
+        console.error("Error registering caregiver:", error.response?.data || error);
+  
+        if (error.response?.status === 400) {
+          alert(error.response.data.message); // Shows "This email or phone number is already registered."
+        } else {
+          alert("Registration failed. Please try again.");
+        }
+      });
+  };
+  
+
   return (
     <div className="caregiver-container">
       <Navbar />
 
       {/* Banner Section */}
       <header className="caregiver-banner">
-        <h3>IN-HOME CAREGIVERS</h3>
+        <h3>Find Professional In-Home Caregivers</h3>
+        <p>Connect with trusted professionals for your loved one's care</p>
       </header>
 
-      {/* Qualified Caregivers Section */}
+      {/* Approved Caregivers Section */}
       <section className="qualified-caregivers">
-        <h2>Qualified Caregivers</h2>
+        <h2>Our Certified Caregivers</h2>
         <div className="caregiver-grid">
-          <div className="caregiver-card">
-            <img src={require("../images/caregiver1.jpeg")} alt="Caregiver 1" />
-            <div className="caregiver-info">
-              <h3>John Doe</h3>
-              <p>Experienced in elderly care, compassionate and dedicated.</p>
-            </div>
-          </div>
-
-          <div className="caregiver-card">
-            <div className="caregiver-info">
-              <h3>Jane Smith</h3>
-              <p>Specialist in Alzheimer's care, ensures patient comfort.</p>
-            </div>
-            <img src={require("../images/caregiver2.jpeg")} alt="Caregiver 2" />
-          </div>
-
-          <div className="caregiver-card">
-            <img src={require("../images/caregiver3.jpeg")} alt="Caregiver 3" />
-            <div className="caregiver-info">
-              <h3>David Johnson</h3>
-              <p>Certified nurse, skilled in mobility assistance and care.</p>
-            </div>
-          </div>
+          {caregivers.length === 0 ? (
+            <p>No approved caregivers yet.</p>
+          ) : (
+            caregivers.map((caregiver) => (
+              <div key={caregiver._id} className="caregiver-card">
+                <div className="caregiver-info">
+                  <h3>{caregiver.name}</h3>
+                  <p><strong>Experience:</strong> {caregiver.experience} years</p>
+                  <p><strong>Availability:</strong> {caregiver.availability}</p>
+                  <p><strong>Email:</strong> {caregiver.email}</p>
+                  <p><strong>Phone:</strong> {caregiver.contact_number}</p>
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </section>
 
-      {/* Register as a Caregiver Section */}
+      {/* Caregiver Registration Form */}
       <section className="register-caregiver">
-        <h2>Register as a Caregiver</h2>
-        <form className="caregiver-form">
-          <label>First Name:</label>
-          <input type="text" placeholder="Enter First Name" />
+  <div className="caregiver-from-container">
+    <h2>Become a Caregiver</h2>
+    <p className="register-subtext">
+      Join our trusted network and provide compassionate care for those in need.
+    </p>
+    <form onSubmit={handleRegister} className="caregiver-form ">
+      <div className="form-group ">
+        <input type="text" name="name" placeholder="Full Name" value={newCaregiver.name} onChange={handleChange} required />
+      </div>
 
-          <label>Last Name:</label>
-          <input type="text" placeholder="Enter Last Name" />
+      <div className="form-group">
+        <input type="text" name="contact_number" placeholder="Phone Number" value={newCaregiver.contact_number} onChange={handleChange} required />
+      </div>
 
-          <label>Email:</label>
-          <input type="email" placeholder="Enter Email" />
+      <div className="form-group">
+        <input type="email" name="email" placeholder="Email" value={newCaregiver.email} onChange={handleChange} required />
+      </div>
 
-          <label>Phone Number:</label>
-          <input type="text" placeholder="Enter Phone Number" />
+      <div className="form-group">
+        <input type="number" name="experience" placeholder="Years of Experience" value={newCaregiver.experience} onChange={handleChange} required />
+      </div>
 
-          <label>How Can We Help?</label>
-          <textarea placeholder="Describe your skills and experience"></textarea>
+      <div className="form-group">
+        <input type="text" name="certifications" placeholder="Certifications (Optional)" value={newCaregiver.certifications} onChange={handleChange} />
+      </div>
 
-          <button type="submit" className="submit-btn">Submit</button>
-        </form>
-      </section>
+      <div className="form-group">
+        <select name="availability" value={newCaregiver.availability} onChange={handleChange}>
+          <option value="Full-Time">Full-Time</option>
+          <option value="Part-Time">Part-Time</option>
+          <option value="On-Call">On-Call</option>
+        </select>
+      </div>
+
+      <button type="submit" className="submit-btn">Register Now</button>
+    </form>
+  </div>
+</section>
+
 
       {/* Client Caregiver Reviews Section */}
       <section className="caregiver-reviews">
@@ -86,8 +146,6 @@ const CaregiverDirectory = () => {
         </div>
       </section>
 
-      
-      {/* Footer */}
       <Footer />
     </div>
   );
