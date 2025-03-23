@@ -86,7 +86,7 @@ const Registration = () => {
                 name="lastName" 
                 placeholder="Last Name" 
                 value={user.lastName} 
-                onChange={handleChange} 
+                onChange={handleChange}    
                 className="input-field" 
             />
             {error.lastName && <p className="error">{error.lastName}</p>}
