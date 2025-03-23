@@ -47,18 +47,24 @@ const Registration = () => {
     };
 
     const handleRegister = async () => {
-        if (!validateForm()) {
-            return;
-        }
-
+        if (!validateForm()) return;
+      
+        const payload = {
+          name: `${user.firstName} ${user.lastName}`,
+          email: user.email,
+          password: user.password,
+          role: user.role,
+        };
+      
         try {
-            await axios.post('http://localhost:5000/api/auth/register', user);
-            alert('Registration successful! Please login.');
-            navigate('/login');
+          await axios.post('http://localhost:5000/api/auth/register', payload);
+          alert('Registration successful! Please login.');
+          navigate('/login');
         } catch (err) {
-            alert('Registration failed. Try again.');
+          alert(err.response?.data?.error || 'Registration failed. Try again.');
         }
-    };
+      };
+      
 
     return (
         <div className="register-container">
@@ -124,8 +130,9 @@ const Registration = () => {
             >
                 <option value="">Select Role</option>
                 <option value="Admin">Admin</option>
-                <option value="User">User</option>
+                <option value="User">User</option> {/* ✅ Ensure it's "User" with capital U */}
             </select>
+
             {error.role && <p className="error">{error.role}</p>}
 
             <button onClick={handleRegister} className="register-button">Submit</button>
