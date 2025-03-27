@@ -43,7 +43,7 @@ const HealthDashboard = () => {
             </div>
             <div className="add-button-wrapper">
               <Link to="/health-form">
-                <button className="add-health-btn">➕ Add / Update Health Data</button>
+                <button className="add-health-btn">Add Health Data</button>
               </Link>
             </div>
           </div>
@@ -92,6 +92,10 @@ const HealthDashboard = () => {
             <div className="stat-card">
               <h4>🩺 Glucose</h4>
               <p>{healthData ? `${healthData.glucose_level} mg/dL` : "-"}</p>
+            </div>
+            <div className="stat-card">
+              <h4>  🌡️ Body Temperature </h4>
+              <p>{healthData ? `${healthData.temperature} (°C)` : "-"}</p>
             </div>
           </div>
 

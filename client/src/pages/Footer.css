@@ -1,14 +1,14 @@
 /* Footer Styles */
 .footer {
-    background: linear-gradient(135deg, #002E59, #001B40);
+    background: linear-gradient(135deg, #002e59, #001b40);
     color: white;
     padding: 60px 20px;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     bottom: 0;
-}
-
-.footer-container {
+  }
+  
+  .footer-container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -17,79 +17,84 @@
     gap: 30px;
     padding-bottom: 20px;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.footer-nav, .footer-contact, .footer-social {
+  }
+  
+  .footer-nav,
+  .footer-contact,
+  .footer-social {
     flex: 1;
     min-width: 250px;
     text-align: left;
-}
-
-.footer-nav h3, .footer-contact h3, .footer-social h3 {
+  }
+  
+  .footer-nav h3,
+  .footer-contact h3,
+  .footer-social h3 {
     font-size: 22px;
     margin-bottom: 15px;
-    color: #FFD700;
-    border-bottom: 3px solid #FFD700;
+    color: #ffd700;
+    border-bottom: 3px solid #ffd700;
     display: inline-block;
     padding-bottom: 5px;
     text-align: center;
-}
-
-.footer-nav ul {
+  }
+  
+  .footer-nav ul {
     list-style: none;
     padding: 0;
-}
-
-.footer-nav ul li {
+  }
+  
+  .footer-nav ul li {
     margin: 8px 0;
-}
-
-.footer-nav ul li a {
+  }
+  
+  .footer-nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s;
-}
-
-.footer-nav ul li a:hover {
-    color: #FFD700;
-}
-
-.footer-contact p {
+  }
+  
+  .footer-nav ul li a:hover {
+    color: #ffd700;
+  }
+  
+  .footer-contact p {
     margin: 10px 0;
     font-size: 16px;
-}
-
-.footer-contact a {
-    color: #FFD700;
+  }
+  
+  .footer-contact a {
+    color: #ffd700;
     text-decoration: none;
     font-weight: 500;
-}
-
-.footer-contact a:hover {
+  }
+  
+  .footer-contact a:hover {
     text-decoration: underline;
-}
-
-/* Social Media Icons */
-.footer-social{
+  }
+  
+  /* Social Media Icons */
+  .footer-social {
     margin-left: 80px;
-}
-.footer-social .social-icons {
+  }
+  
+  .footer-social .social-icons {
     display: flex;
     justify-content: left;
     align-items: center;
     gap: 15px;
     margin-top: 10px;
-}
-
-.footer-social .social-icons a {
+  }
+  
+  .footer-social .social-icons a {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #FFD700, #FFC107);
-    color: #002E59;
+    background: linear-gradient(135deg, #ffd700, #ffc107);
+    color: #002e59;
     border-radius: 50%;
     font-size: 24px;
     transition: all 0.3s ease-in-out;
@@ -97,9 +102,9 @@
     box-shadow: 0px 4px 12px rgba(255, 215, 0, 0.5);
     position: relative;
     overflow: hidden;
-}
-
-.footer-social .social-icons a::before {
+  }
+  
+  .footer-social .social-icons a::before {
     content: "";
     position: absolute;
     top: 0;
@@ -108,41 +113,43 @@
     height: 100%;
     background: rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease-in-out;
-}
-
-.footer-social .social-icons a:hover::before {
+  }
+  
+  .footer-social .social-icons a:hover::before {
     left: 100%;
-}
-
-.footer-social .social-icons a:hover {
+  }
+  
+  .footer-social .social-icons a:hover {
     transform: scale(1.2);
     background: white;
-    color: #002E59;
+    color: #002e59;
     box-shadow: 0px 6px 15px rgba(255, 215, 0, 0.6);
-}
-
-.footer-bottom {
+  }
+  
+  /* Footer Bottom */
+  .footer-bottom {
     margin-top: 30px;
     font-size: 14px;
     opacity: 0.8;
     text-align: center;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
     .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
-    .footer-nav, .footer-contact, .footer-social {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    .footer-social{
-        margin-left: 0;
+    .footer-nav,
+    .footer-contact,
+    .footer-social {
+      text-align: center;
+      margin-bottom: 20px;
+      margin-left: 0;
     }
     .footer-social .social-icons {
-        justify-content: center;
+      justify-content: center;
     }
-}
+  }
+  
