@@ -10,7 +10,7 @@ const HomePage = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      navigate("/logged-in-home"); // Redirect to logged-in home if authenticated
+      navigate("/"); // Redirect to logged-in home if authenticated
     }
   }, [navigate]);
 

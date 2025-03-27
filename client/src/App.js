@@ -7,30 +7,34 @@ import HealthDashboard from './pages/HealthDashboard';
 import Emergency from './pages/Emergency';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Logout from './pages/Logout'; 
+import Logout from './pages/Logout';
 import AdminDashboard from "./pages/AdminDashboard";
 import CaregiverList from "./pages/CaregiverList";
 import UserList from "./pages/UserList";
-import LoggedInHomePage from './pages/LoggedInHomePage';
+import Profile from './pages/Profile'; // Import the Profile page
+
+import { UserProvider } from './contexts/UserContext'; // Import the UserContext provider
 
 const App = () => {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/medications" element={<MedicationPage />} />
-                <Route path="/caregivers" element={<CaregiverDirectory />} />
-                <Route path="/health-dashboard" element={<HealthDashboard />} />
-                <Route path="/emergency" element={<Emergency />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/logout" element={<Logout />} /> 
-                <Route path="/admin-dashboard" element={<AdminDashboard />} />
-                <Route path="/admin/caregivers" element={<CaregiverList />} />
-                <Route path="/admin/users" element={<UserList />} />
-                <Route path="/logged-in-home" element={<LoggedInHomePage />} />
-            </Routes>
-        </Router>
+        <UserProvider> {/* Wrap your application with the UserProvider */}
+            <Router>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/medications" element={<MedicationPage />} />
+                    <Route path="/caregivers" element={<CaregiverDirectory />} />
+                    <Route path="/health-dashboard" element={<HealthDashboard />} />
+                    <Route path="/emergency" element={<Emergency />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/logout" element={<Logout />} />
+                    <Route path="/admin-dashboard" element={<AdminDashboard />} />
+                    <Route path="/admin/caregivers" element={<CaregiverList />} />
+                    <Route path="/admin/users" element={<UserList />} />
+                    <Route path="/profile" element={<Profile />} /> {/* Add the Profile Route */}
+                </Routes>
+            </Router>
+        </UserProvider>
     );
 };
 
