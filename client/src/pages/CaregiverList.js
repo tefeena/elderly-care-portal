@@ -25,9 +25,11 @@ const CaregiverList = () => {
     axios
       .put(`http://localhost:5000/api/caregivers/approve/${id}`, { approved: status })
       .then(() => {
-        setCaregivers(caregivers.map((caregiver) => 
-          caregiver._id === id ? { ...caregiver, approved: status } : caregiver
-        ));
+        setCaregivers(
+          caregivers.map((caregiver) =>
+            caregiver._id === id ? { ...caregiver, approved: status } : caregiver
+          )
+        );
       })
       .catch((err) => console.error("Error updating caregiver status", err));
   };
@@ -35,7 +37,9 @@ const CaregiverList = () => {
   const deleteCaregiver = (id) => {
     axios
       .delete(`http://localhost:5000/api/caregivers/${id}`)
-      .then(() => setCaregivers(caregivers.filter((caregiver) => caregiver._id !== id)))
+      .then(() =>
+        setCaregivers(caregivers.filter((caregiver) => caregiver._id !== id))
+      )
       .catch((err) => console.error("Error deleting caregiver", err));
   };
 
@@ -44,7 +48,6 @@ const CaregiverList = () => {
       <Navbar />
       <Container>
         <h2 className="dashboard-title">Caregiver List</h2>
-
         {loading ? (
           <div className="loading-container">
             <Spinner animation="border" />
@@ -53,48 +56,58 @@ const CaregiverList = () => {
         ) : caregivers.length === 0 ? (
           <p className="no-caregivers">No caregivers found.</p>
         ) : (
-          <Table striped bordered hover responsive className="caregiver-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Experience</th>
-                <th>Certifications</th>
-                <th>Availability</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {caregivers.map((caregiver) => (
-                <tr key={caregiver._id}>
-                  <td>{caregiver.name}</td>
-                  <td>{caregiver.email}</td>
-                  <td>{caregiver.experience} years</td>
-                  <td>{caregiver.certifications || "N/A"}</td> {/* Show certification or "N/A" */}
-                  <td>{caregiver.availability}</td>
-                  <td>
-                    {caregiver.approved ? (
-                      <span className="status-approved">Approved</span>
-                    ) : (
-                      <span className="status-pending">Pending</span>
-                    )}
-                  </td>
-                  <td className="action-buttons">
-                    {!caregiver.approved && (
-                      <Button variant="success" onClick={() => updateCaregiverStatus(caregiver._id, true)}>
-                        Approve
-                      </Button>
-                    )}
-                    {" "}
-                    <Button variant="danger" onClick={() => deleteCaregiver(caregiver._id)}>
-                      Delete
-                    </Button>
-                  </td>
+          <div className="caregiver-table-container">
+            <Table striped bordered hover responsive className="caregiver-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Experience</th>
+                  <th>Certifications</th>
+                  <th>Availability</th>
+                  <th>Status</th>
+                  <th>Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </Table>
+              </thead>
+              <tbody>
+                {caregivers.map((caregiver) => (
+                  <tr key={caregiver._id}>
+                    <td>{caregiver.name}</td>
+                    <td>{caregiver.email}</td>
+                    <td>{caregiver.experience} years</td>
+                    <td>{caregiver.certifications || "N/A"}</td>
+                    <td>{caregiver.availability}</td>
+                    <td>
+                      {caregiver.approved ? (
+                        <span className="status-approved">Approved</span>
+                      ) : (
+                        <span className="status-pending">Pending</span>
+                      )}
+                    </td>
+                    <td className="action-buttons">
+                      {!caregiver.approved && (
+                        <Button
+                          variant="success"
+                          onClick={() =>
+                            updateCaregiverStatus(caregiver._id, true)
+                          }
+                        >
+                          Approve
+                        </Button>
+                      )}
+                      {" "}
+                      <Button
+                        variant="danger"
+                        onClick={() => deleteCaregiver(caregiver._id)}
+                      >
+                        Delete
+                      </Button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
         )}
       </Container>
     </div>

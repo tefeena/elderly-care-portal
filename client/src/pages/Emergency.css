@@ -1,3 +1,4 @@
+/* General Container */
 .Emergency_container {
   font-family: 'Lora', serif;
   background-color: #f4f4f4;
@@ -5,7 +6,7 @@
   padding: 0;
 }
 
-
+/* Navbar */
 .Emergency_navbar {
   display: flex;
   justify-content: space-between;
@@ -45,6 +46,7 @@
   transform: translateY(-3px);
 }
 
+/* Banner */
 .Emergency_banner {
   background: url('../images/emergency_banner.jpeg') no-repeat center center/cover;
   height: 450px;
@@ -100,6 +102,7 @@
   margin-bottom: 30px;
 }
 
+/* Emergency Access Section */
 .Emergency_access {
   display: flex;
   align-items: center;
@@ -118,6 +121,7 @@
   max-width: 500px;
   margin-right: 20px;
   transition: transform 0.3s ease;
+  object-fit: cover;
 }
 
 .Emergency_image:hover {
@@ -130,10 +134,11 @@
   background: linear-gradient(to right, #ffffff, #e7e7e7);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.3s ease;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .Emergency_info:hover {
@@ -152,6 +157,12 @@
   color: #555;
   margin-bottom: 30px;
   line-height: 1.6;
+}
+
+.Emergency_buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
 }
 
 .Emergency_call-btn {
@@ -196,19 +207,7 @@
   transform: scale(1.05);
 }
 
-.Emergency_info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.Emergency_buttons {
-  display: flex;
-  justify-content: flex-start;
-  gap: 20px;
-}
-
+/* Emergency Intro */
 .Emergency_intro {
   padding: 30px;
   background: linear-gradient(to right, #ffffff, #d4e5ee);
@@ -227,6 +226,7 @@
   font-weight: bold;
   font-size: 48px;
   color: #003E73;
+  margin-bottom: 20px;
 }
 
 .Emergency_intro p {
@@ -236,6 +236,7 @@
   max-width: 900px;
   margin: 0 auto;
   text-align: justify;
+  margin-bottom: 20px;
 }
 
 .Emergency_intro p::before {
@@ -243,11 +244,16 @@
   font-size: 24px;
 }
 
+/* Emergency Services Grid */
+.Emergency_services {
+  margin: 0 40px;
+}
+
 .Emergency_grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  padding: 40px;
+  padding: 40px 0;
 }
 
 .Emergency_service {
@@ -262,8 +268,8 @@
   border-radius: 10px;
   transition: transform 0.3s ease, opacity 0.3s ease;
   background-size: cover;
-  text-shadow: 2px 2px 5px rgba(0.9, 0.9, 0.9, 0.8);
   background-position: center;
+  text-shadow: 2px 2px 5px rgba(0.9, 0.9, 0.9, 0.8);
 }
 
 .Emergency_service:hover {
@@ -296,6 +302,7 @@
   background-image: url('../images/respite.jpg');
 }
 
+/* Emergency Assistance */
 .Emergency_assistance {
   text-align: center;
   background-color: #e4e4e4;
@@ -313,6 +320,11 @@
   transform: translateY(-5px);
 }
 
+.Emergency_assistance a.Emergency_call-btn {
+  margin-top: 15px;
+}
+
+/* Emergency Contact */
 .Emergency_contact {
   display: flex;
   justify-content: space-around;
@@ -332,4 +344,105 @@
 
 .Emergency_contact-box:hover {
   transform: translateY(-5px);
+}
+
+/* ======================= */
+/* ===== MEDIA QUERY ===== */
+/* ======================= */
+
+/* Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .Emergency_banner {
+    height: 300px;
+  }
+  .Emergency_banner h1 {
+    font-size: 2.5rem;
+  }
+  .Emergency_access {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .Emergency_image {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+    height: 250px;
+  }
+  .Emergency_info h2 {
+    font-size: 36px;
+  }
+  .Emergency_info p {
+    font-size: 16px;
+  }
+  .Emergency_intro {
+    margin: 20px;
+    padding: 20px;
+  }
+  .Emergency_intro h1 {
+    font-size: 32px;
+  }
+  .Emergency_intro p {
+    font-size: 16px;
+  }
+  .Emergency_grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .Emergency_service {
+    font-size: 28px;
+    height: 250px;
+  }
+  .Emergency_assistance {
+    font-size: 28px;
+  }
+  .Emergency_contact {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .Emergency_contact-box {
+    width: 80%;
+  }
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .Emergency_banner {
+    height: 250px;
+  }
+  .Emergency_banner h1 {
+    font-size: 1.8rem;
+  }
+  .Emergency_image {
+    height: 200px;
+  }
+  .Emergency_info h2 {
+    font-size: 24px;
+  }
+  .Emergency_info p {
+    font-size: 14px;
+  }
+  .Emergency_intro h1 {
+    font-size: 24px;
+  }
+  .Emergency_intro p {
+    font-size: 14px;
+  }
+  .Emergency_grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .Emergency_service {
+    font-size: 20px;
+    height: 180px;
+  }
+  .Emergency_assistance {
+    font-size: 20px;
+  }
+  .Emergency_contact {
+    padding: 20px;
+  }
+  .Emergency_contact-box {
+    width: 90%;
+  }
 }

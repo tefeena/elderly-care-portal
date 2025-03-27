@@ -1,81 +1,81 @@
 /* General Styles */
 .caregiver-container {
-    font-family: "Poppins", sans-serif;
-    background: #f4f4f4;
-    color: #333;
-    text-align: center;
-  }
-  
-  /* Banner Section */
-  .caregiver-banner {
-    background-image: url("../images/caregiver-banner.jpeg");
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 5px rgb(0, 0, 0);
-  }
-  
-  /* Qualified Caregivers Section */
-  .qualified-caregivers {
-    background: #fff;
-    padding: 50px 20px;
-  }
-  
-  .qualified-caregivers h2 {
-    font-size: 2.5rem;
-    color: #003E73;
-    margin-bottom: 30px;
-  }
-  
-  /* Caregiver Grid */
-  .caregiver-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    max-width: 900px;
-    margin: auto;
-  }
-  
-  .caregiver-card {
-    display: flex;
-    align-items: center;
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
-  
-  .caregiver-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .caregiver-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-right: 20px;
-  }
-  
-  .caregiver-info {
-    text-align: left;
-  }
-  
-  .caregiver-info h3 {
-    color: #003E73;
-    margin-bottom: 5px;
-  }
-  
-  .caregiver-info p {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  /* Caregiver Registration Section */
+  font-family: "Poppins", sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  text-align: center;
+}
+
+/* Banner Section */
+.caregiver-banner {
+  background-image: url("../images/caregiver-banner.jpeg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+/* Qualified Caregivers Section */
+.qualified-caregivers {
+  background: #fff;
+  padding: 50px 20px;
+}
+
+.qualified-caregivers h2 {
+  font-size: 2.5rem;
+  color: #003E73;
+  margin-bottom: 30px;
+}
+
+/* Caregiver Grid */
+.caregiver-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.caregiver-card {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.caregiver-card:hover {
+  transform: translateY(-5px);
+}
+
+.caregiver-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.caregiver-info {
+  text-align: left;
+}
+
+.caregiver-info h3 {
+  color: #003E73;
+  margin-bottom: 5px;
+}
+
+.caregiver-info p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Caregiver Registration Section */
 .register-caregiver {
   background: linear-gradient(to right, #f9f9f9, #e6f7ff);
   padding: 60px 20px;
@@ -83,11 +83,9 @@
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   max-width: 900px;
-  margin: auto;
-  margin-top: 30px;
+  margin: 30px auto;
 }
 
-/* Registration Heading */
 .register-caregiver h2 {
   font-size: 2.5rem;
   font-weight: bold;
@@ -95,11 +93,16 @@
   margin-bottom: 15px;
 }
 
-/* Subtext */
 .register-subtext {
   font-size: 1rem;
   color: #555;
   margin-bottom: 30px;
+}
+
+.caregiver-form-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* Form Container */
@@ -155,77 +158,124 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Hover Effect */
 .submit-btn:hover {
   background: linear-gradient(to right, #0056b3, #004080);
   transform: translateY(-2px);
 }
 
-/* Mobile Responsive */
+/* Reviews Section */
+.caregiver-reviews {
+  padding: 50px 20px;
+}
+
+.caregiver-reviews h2 {
+  font-size: 2.5rem;
+  color: #003E73;
+  margin-bottom: 30px;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.review-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.review-card p {
+  font-style: italic;
+}
+
+.review-card span {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+/* Footer */
+.caregiver-footer {
+  padding: 20px;
+  background: #003E73;
+  color: white;
+  font-size: 1rem;
+}
+
+/* Container for some forms */
+.caregiver-from-container {
+  width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* ===================================== */
+/* =========== MEDIA QUERIES =========== */
+/* ===================================== */
+
+/* Tablet Screens (up to 768px) */
 @media (max-width: 768px) {
   .register-caregiver {
-      padding: 40px 15px;
+    padding: 40px 15px;
   }
 
   .register-caregiver h2 {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 
   .caregiver-form input,
   .caregiver-form select {
-      font-size: 0.9rem;
+    font-size: 0.9rem;
   }
 
   .submit-btn {
-      font-size: 1rem;
+    font-size: 1rem;
+  }
+
+  /* Switch caregiver-grid to 1 column */
+  .caregiver-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Switch review-grid to 2 columns */
+  .review-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-  
-  /* Reviews Section */
-  .caregiver-reviews {
-    padding: 50px 20px;
+/* Mobile Screens (up to 480px) */
+@media (max-width: 480px) {
+  .caregiver-banner {
+    font-size: 1.8rem;
+    padding: 60px 15px;
   }
-  
+
+  .qualified-caregivers h2,
+  .caregiver-reviews h2 {
+    font-size: 1.8rem;
+  }
+
+  .caregiver-form-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Switch review-grid to 1 column */
   .review-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 900px;
-    margin: auto;
+    grid-template-columns: 1fr;
   }
-  
+
   .review-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 300px;
   }
-  
-  .review-card p {
-    font-style: italic;
-  }
-  
-  .review-card span {
-    font-weight: bold;
-    display: block;
-    margin-top: 10px;
-  }
-  
-  /* Footer */
-  .caregiver-footer {
-    padding: 20px;
-    background: #003E73;
-    color: white;
-    font-size: 1rem;
-  }
-  .caregiver-from-container {
-    width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    
 }

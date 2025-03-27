@@ -1,379 +1,317 @@
-/* General Admin Dashboard Styles */
+/* Overall Dashboard Layout */
 .admin-dashboard {
-    background-color: #f8f9fa;
+    background-color: #f0f2f5;
     min-height: 100vh;
-    padding: 50px 20px;
-    margin-top: 80px;
-}
-
-/* Stat Cards */
-.stat-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
+    padding-bottom: 40px;
+  }
+  
+  /* Dashboard Header with Gradient Background */
+  .dashboard-header {
+    background: linear-gradient(135deg, #003e73, #00509e);
+    color: white;
+    padding: 60px 20px;
     text-align: center;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s ease-in-out;
-}
-
-.stat-card:hover {
+    margin-bottom: 30px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-header p {
+    font-size: 1.2rem;
+  }
+  
+  /* Improved Stat Cards Row using Flexbox */
+  .stat-cards-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  /* Stat Cards Styling */
+  .stat-card {
+    background: white;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    flex: 1 1 300px; /* Allows cards to grow/shrink */
+    max-width: 300px;
+  }
+  
+  .stat-card:hover {
     transform: translateY(-5px);
-}
-
-/* Caregiver Dashboard */
-.caregiver-dashboard, 
-.user-dashboard {
-    margin-top: 80px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .stat-card .card-body {
+    text-align: center;
+    padding: 30px 20px;
+  }
+  
+  .stat-card h4 {
+    color: #003e73;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .stat-card p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    color: #00509e;
+  }
+  
+  /* Responsive adjustments for Header and Stat Cards */
+  @media (max-width: 768px) {
+    .dashboard-header h1 {
+      font-size: 2.5rem;
+    }
+    .stat-card .card-body {
+      padding: 20px 10px;
+    }
+  }
+  
+  /* ---------------------------------
+     Additional styles for caregiver & user dashboards
+  --------------------------------- */
+  
+  .user-dashboard,
+  .caregiver-dashboard {
     background-color: #f8f9fa;
     min-height: 100vh;
     padding: 40px 0;
-}
-
-/* Dashboard Titles */
-.dashboard-title {
+    margin-top: 80px;
+  }
+  
+  .dashboard-title {
     text-align: center;
     font-size: 2.5rem;
     font-weight: bold;
-    color: #003E73;
+    color: #003e73;
     margin-bottom: 30px;
-}
-
-/* Caregiver Table Styling */
-.caregiver-table {
-    width: 90%;
-    margin: auto;
+  }
+  
+  /* Make table container scrollable */
+  .user-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Tables Styling */
+  .caregiver-table,
+  .user-table {
     background: white;
     border-radius: 12px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
     overflow: hidden;
-}
-
-/* Table Headers */
-.caregiver-table th {
-    background: #003E73;
+    margin: auto;
+    width: 90%;
+  }
+  
+  .caregiver-table th,
+  .user-table th {
+    background: #003e73;
     color: white;
     text-align: center;
     padding: 15px;
     font-size: 1.1rem;
-}
-
-/* Table Rows */
-.caregiver-table td {
+  }
+  
+  .caregiver-table td,
+  .user-table td {
     text-align: center;
     padding: 12px;
     font-size: 1rem;
     border-bottom: 1px solid #dee2e6;
-}
-
-/* Hover Effect */
-.caregiver-table tbody tr:hover {
+  }
+  
+  .caregiver-table tbody tr:hover,
+  .user-table tbody tr:hover {
     background: #e3f2fd;
     transition: background 0.3s ease-in-out;
-}
-
-/* Status Labels */
-.status-approved {
+  }
+  
+  /* Status Labels */
+  .status-approved {
     background: #28a745;
     color: white;
     padding: 6px 12px;
     border-radius: 6px;
     font-weight: bold;
     display: inline-block;
-}
-
-.status-pending {
+  }
+  
+  .status-pending {
     background: #ff9800;
     color: white;
     padding: 6px 12px;
     border-radius: 6px;
     font-weight: bold;
     display: inline-block;
-}
-
-/* Action Buttons */
-.action-buttons button {
+  }
+  
+  .status-admin {
+    background: #4caf50;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .status-user {
+    background: #ff9800;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  /* Action Buttons */
+  .action-buttons button {
     font-size: 0.9rem;
     padding: 10px 15px;
     border-radius: 8px;
     transition: all 0.3s ease;
     border: none;
     font-weight: bold;
-}
-
-/* Approve Button */
-button.btn-success {
+  }
+  
+  button.btn-success {
     background-color: #28a745;
-}
-
-button.btn-success:hover {
+  }
+  
+  button.btn-success:hover {
     background-color: #218838;
-}
-
-/* Reject Button */
-button.btn-danger {
+  }
+  
+  button.btn-danger {
     background-color: #dc3545;
-}
-
-button.btn-danger:hover {
+  }
+  
+  button.btn-danger:hover {
     background-color: #c82333;
-}
-
-/* Edit Button */
-button.btn-warning {
+  }
+  
+  button.btn-warning {
     background-color: #ffc107;
-}
-
-button.btn-warning:hover {
+  }
+  
+  button.btn-warning:hover {
     background-color: #e0a800;
-}
-
-/* Delete Button */
-button.btn-delete {
+  }
+  
+  button.btn-delete {
     background-color: #d9534f;
-}
-
-button.btn-delete:hover {
+  }
+  
+  button.btn-delete:hover {
     background-color: #c9302c;
-}
-
-/* Loading & No Caregiver Found */
-.loading-container, .no-caregivers {
+  }
+  
+  /* Loading & No Data Styles */
+  .loading-container,
+  .no-caregivers {
     text-align: center;
     font-size: 1.2rem;
     font-weight: bold;
     color: #333;
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .caregiver-table {
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .dashboard-title {
-        font-size: 2rem;
-    }
-
-    .caregiver-table th, 
-    .caregiver-table td {
-        font-size: 0.9rem;
-        padding: 10px;
-    }
-
-    .action-buttons button {
-        font-size: 0.8rem;
-        padding: 8px 12px;
-    }
-}
-
-@media (max-width: 576px) {
-    .dashboard-title {
-        font-size: 1.8rem;
-    }
-
-    .caregiver-table th, 
-    .caregiver-table td {
-        font-size: 0.8rem;
-    }
-
-    .action-buttons button {
-        font-size: 0.7rem;
-        padding: 6px 10px;
-    }
-}
-/* User Dashboard */
-.user-dashboard {
-    background-color: #f8f9fa;
-    min-height: 100vh;
-    padding: 40px 0;
-}
-
-/* Dashboard Title */
-.dashboard-title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #003E73;
-    margin-bottom: 30px;
-}
-
-/* User Table */
-.user-table {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Table Headers */
-.user-table th {
-    background: #003E73;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 1.1rem;
-}
-
-/* Table Rows */
-.user-table td {
-    text-align: center;
-    padding: 15px;
-    font-size: 1rem;
-    border-bottom: 1px solid #dee2e6;
-}
-
-/* Hover Effect */
-.user-table tbody tr:hover {
-    background: #e3f2fd;
-}
-
-/* Status Labels */
-.status-admin {
-    background: #4CAF50;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.status-user {
-    background: #ff9800;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-/* Action Buttons */
-.action-buttons button {
-    font-size: 0.9rem;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-/* Edit Button */
-button.btn-warning {
-    background-color: #ffc107;
-    border: none;
-}
-
-button.btn-warning:hover {
-    background-color: #e0a800;
-}
-
-/* Delete Button */
-button.btn-danger {
-    background-color: #d9534f;
-    border: none;
-}
-
-button.btn-danger:hover {
-    background-color: #c9302c;
-}
-
-/* Loading Spinner */
-.loading-container {
-    text-align: center;
+  }
+  
+  .loading-container {
     padding: 40px;
-}
-
-.loading-container p {
+  }
+  
+  .loading-container p {
     margin-top: 10px;
     font-size: 1.2rem;
-}
-
-/* User Dashboard */
-.user-dashboard {
-    background-color: #f8f9fa;
-    min-height: 100vh;
-    padding: 40px 0;
-}
-
-/* Dashboard Title */
-.dashboard-title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #003E73;
-    margin-bottom: 30px;
-}
-
-/* User Table */
-.user-table {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Table Headers */
-.user-table th {
-    background: #003E73;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: 1.1rem;
-}
-
-/* Table Rows */
-.user-table td {
-    text-align: center;
-    padding: 15px;
-    font-size: 1rem;
-    border-bottom: 1px solid #dee2e6;
-}
-
-/* Hover Effect */
-.user-table tbody tr:hover {
-    background: #e3f2fd;
-}
-
-/* Action Buttons */
-.action-buttons button {
-    font-size: 0.9rem;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-/* Edit Button */
-button.btn-warning {
-    background-color: #ffc107;
-    border: none;
-}
-
-button.btn-warning:hover {
-    background-color: #e0a800;
-}
-
-/* Delete Button */
-button.btn-danger {
-    background-color: #d9534f;
-    border: none;
-}
-
-button.btn-danger:hover {
-    background-color: #c9302c;
-}
-
-/* Modal Styling */
-.modal-content {
+  }
+  
+  /* Modal Styling */
+  .modal-content {
     border-radius: 10px;
-}
-
-.modal-header {
-    background: #003E73;
+  }
+  
+  .modal-header {
+    background: #003e73;
     color: white;
-}
-
-.modal-footer {
+  }
+  
+  .modal-footer {
     border-top: none;
-}
-
+  }
+  
+  /* ---------------------------------
+     Responsive Adjustments
+  --------------------------------- */
+  
+  /* Medium Devices (max-width: 992px) */
+  @media (max-width: 992px) {
+    .caregiver-table,
+    .user-table {
+      width: 100%;
+    }
+  }
+  
+  /* Small Devices (max-width: 768px) */
+  @media (max-width: 768px) {
+    .dashboard-header h1 {
+      font-size: 2.5rem;
+    }
+    .stat-card .card-body {
+      padding: 20px 10px;
+    }
+    .dashboard-title {
+      font-size: 2rem;
+    }
+    .caregiver-table th,
+    .caregiver-table td,
+    .user-table th,
+    .user-table td {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+    .action-buttons button {
+      font-size: 0.8rem;
+      padding: 8px 12px;
+    }
+  }
+  
+  /* Extra Small Devices (max-width: 576px) */
+  @media (max-width: 576px) {
+    .dashboard-header h1 {
+      font-size: 2rem;
+    }
+    .dashboard-header p {
+      font-size: 1rem;
+    }
+    .stat-card h4 {
+      font-size: 1.2rem;
+    }
+    .stat-card p {
+      font-size: 1.5rem;
+    }
+    .dashboard-title {
+      font-size: 1.8rem;
+    }
+    .caregiver-table th,
+    .caregiver-table td,
+    .user-table th,
+    .user-table td {
+      font-size: 0.8rem;
+      padding: 8px;
+    }
+    .action-buttons button {
+      font-size: 0.7rem;
+      padding: 6px 10px;
+      margin-top: 5px;
+    }
+  }
+  

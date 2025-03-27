@@ -2,7 +2,7 @@
 .navbar {
   font-family: 'Arial', sans-serif;
   background: rgba(0, 46, 89, 0.8); /* Glassmorphism effect */
-  backdrop-filter: blur(10px); 
+  backdrop-filter: blur(10px);
   padding: 15px 10px;
   display: flex;
   justify-content: center;
@@ -23,6 +23,7 @@
   align-items: center;
   width: 100%;
   max-width: 1200px;
+  padding: 0 20px;
 }
 
 /* Logo */
@@ -34,9 +35,8 @@
   text-decoration: none;
   letter-spacing: 1px;
   transition: transform 0.3s ease-in-out;
-  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7); 
+  text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.7);
 }
-
 
 .navbar-logo:hover {
   transform: scale(1.1);
@@ -61,7 +61,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Hover Effect */
 .nav-links a:hover {
   color: #FFD700;
   background: rgba(255, 215, 0, 0.2);
@@ -124,12 +123,14 @@
     display: none;
     flex-direction: column;
     position: absolute;
-    background: rgba(0, 0, 0, 0.9);
-    top: 65px;
+    /* Pin to both sides to avoid overflow */
+    left: 0;
     right: 0;
-    width: 100%;
+    top: 65px;
+    background: rgba(0, 0, 0, 0.9);
     text-align: center;
     padding: 25px 0;
+    z-index: 999; /* So it appears on top of content */
   }
 
   .nav-links.active {
@@ -139,5 +140,18 @@
   .nav-links a {
     padding: 15px;
     font-size: 22px;
+  }
+}
+
+
+/* Extra adjustments for very small devices */
+@media (max-width: 480px) {
+  .navbar-logo {
+    font-size: 24px;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    padding: 12px 15px;
   }
 }

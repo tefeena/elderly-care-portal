@@ -12,6 +12,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import CaregiverList from "./pages/CaregiverList";
 import UserList from "./pages/UserList";
 import LoggedInHomePage from './pages/LoggedInHomePage';
+import HealthForm from './pages/HealthForm';
 
 const App = () => {
     return (
@@ -28,6 +29,7 @@ const App = () => {
                 <Route path="/admin-dashboard" element={<AdminDashboard />} />
                 <Route path="/admin/caregivers" element={<CaregiverList />} />
                 <Route path="/admin/users" element={<UserList />} />
+                <Route path="/health-form" element={<HealthForm />} />
                 <Route path="/logged-in-home" element={<LoggedInHomePage />} />
             </Routes>
         </Router>

@@ -5,6 +5,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userRole, setUserRole] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,7 +17,6 @@ const Navbar = () => {
     };
 
     checkAuth();
-
     window.addEventListener("storage", checkAuth);
 
     return () => {
@@ -33,45 +33,48 @@ const Navbar = () => {
     navigate("/login", { replace: true });
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
           Elderly Care
         </Link>
-
-        <div className="nav-links">
-          {/* If Admin is logged in, show Admin-specific pages */}
+        <div className={`nav-links ${menuOpen ? "active" : ""}`}>
           {isLoggedIn && userRole === "Admin" ? (
             <>
-              <Link to="/admin-dashboard">Admin Dashboard</Link>
-              <Link to="/admin/caregivers">Caregiver List</Link>
-              <Link to="/admin/users">User List</Link>
+              <Link to="/admin-dashboard" onClick={() => setMenuOpen(false)}>Admin Dashboard</Link>
+              <Link to="/admin/caregivers" onClick={() => setMenuOpen(false)}>Caregiver List</Link>
+              <Link to="/admin/users" onClick={() => setMenuOpen(false)}>User List</Link>
             </>
           ) : isLoggedIn ? (
-            // If a regular user is logged in, show user-specific pages
             <>
-              <Link to="/">Home</Link>
-              <Link to="/caregivers">Caregivers</Link>
-              <Link to="/emergency">Emergency</Link>
-              <Link to="/health-dashboard">Dashboard</Link>
-              <Link to="/medications">Medication</Link>
+              <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+              <Link to="/caregivers" onClick={() => setMenuOpen(false)}>Caregivers</Link>
+              <Link to="/emergency" onClick={() => setMenuOpen(false)}>Emergency</Link>
+              <Link to="/health-dashboard" onClick={() => setMenuOpen(false)}>Dashboard</Link>
+              <Link to="/medications" onClick={() => setMenuOpen(false)}>Medication</Link>
             </>
           ) : (
-            // If no one is logged in, show public pages
             <>
-              <Link to="/">Home</Link>
-              <Link to="/caregivers">Caregivers</Link>
-              <Link to="/emergency">Emergency</Link>
+              <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+              <Link to="/caregivers" onClick={() => setMenuOpen(false)}>Caregivers</Link>
+              <Link to="/emergency" onClick={() => setMenuOpen(false)}>Emergency</Link>
             </>
           )}
-
-          {/* Show Logout button if logged in, else show Login link */}
           {isLoggedIn ? (
-            <button onClick={handleLogout} className="logout-btn">Logout</button>
+            <button onClick={() => { handleLogout(); setMenuOpen(false); }} className="logout-btn">Logout</button>
           ) : (
-            <Link to="/login">Login</Link>
+            <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
           )}
+        </div>
+        <div className={`menu-toggle ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
         </div>
       </div>
     </nav>

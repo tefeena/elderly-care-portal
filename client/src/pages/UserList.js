@@ -13,13 +13,16 @@ const UserList = () => {
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/users")
-      .then((res) => setUsers(res.data))
+      .then((res) => {
+        setUsers(res.data);
+        setLoading(false);
+      })
       .catch((err) => {
         console.error("Error fetching users", err);
         alert("Failed to fetch users. Please check your server.");
+        setLoading(false);
       });
   }, []);
-  
 
   const deleteUser = (id) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
@@ -50,7 +53,6 @@ const UserList = () => {
       <Navbar />
       <Container>
         <h2 className="dashboard-title">User List</h2>
-
         {loading ? (
           <div className="loading-container">
             <Spinner animation="border" />
@@ -59,33 +61,35 @@ const UserList = () => {
         ) : users.length === 0 ? (
           <p className="no-users">No users found.</p>
         ) : (
-          <Table striped bordered hover responsive className="user-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((user) => (
-                <tr key={user._id}>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>{user.role}</td>
-                  <td className="action-buttons">
-                    <Button variant="warning" onClick={() => handleEditClick(user)}>
-                      Edit
-                    </Button>{" "}
-                    <Button variant="danger" onClick={() => deleteUser(user._id)}>
-                      Delete
-                    </Button>
-                  </td>
+          <div className="user-table-container">
+            <Table striped bordered hover responsive className="user-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </Table>
+              </thead>
+              <tbody>
+                {users.map((user) => (
+                  <tr key={user._id}>
+                    <td>{user.name}</td>
+                    <td>{user.email}</td>
+                    <td>{user.role}</td>
+                    <td className="action-buttons">
+                      <Button variant="warning" onClick={() => handleEditClick(user)}>
+                        Edit
+                      </Button>{" "}
+                      <Button variant="danger" onClick={() => deleteUser(user._id)}>
+                        Delete
+                      </Button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
         )}
 
         {/* Edit User Modal */}
@@ -107,11 +111,7 @@ const UserList = () => {
 
                 <Form.Group controlId="formEmail">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="email"
-                    value={selectedUser.email}
-                    disabled
-                  />
+                  <Form.Control type="email" value={selectedUser.email} disabled />
                 </Form.Group>
 
                 <Form.Group controlId="formRole">

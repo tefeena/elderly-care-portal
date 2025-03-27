@@ -3,16 +3,23 @@ import { useEffect } from "react";
 import "./HomePage.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import {  useState } from 'react';
+import axios from 'axios';
 
 const HomePage = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      navigate("/logged-in-home"); // Redirect to logged-in home if authenticated
+  const [health, setHealth] = useState(null);
+
+useEffect(() => {
+  const token = localStorage.getItem("token");
+
+  axios.get("http://localhost:5000/api/health/data", {
+    headers: {
+      Authorization: `Bearer ${token}`
     }
-  }, [navigate]);
+  }).then((res) => setHealth(res.data)).catch(console.error);
+}, []);
 
   return (
     <div className="home-container">
