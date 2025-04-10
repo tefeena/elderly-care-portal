@@ -79,3 +79,34 @@ exports.registerCaregiver = async (req, res) => {
 };
 
 
+// Delete caregiver by ID
+exports.deleteCaregiver = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const caregiver = await Caregiver.findByIdAndDelete(id);
+
+        if (!caregiver) {
+            return res.status(404).json({ message: "Caregiver not found" });
+        }
+
+        res.status(200).json({ message: "Caregiver deleted successfully" });
+    } catch (error) {
+        console.error("❌ Delete Error:", error);
+        res.status(500).json({ error: error.message });
+    }
+};
+
+// GET caregiver by ID
+exports.getCaregiverById = async (req, res) => {
+    try {
+      const caregiver = await Caregiver.findById(req.params.id);
+      if (!caregiver) {
+        return res.status(404).json({ message: "Caregiver not found" });
+      }
+      res.status(200).json(caregiver);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
+  

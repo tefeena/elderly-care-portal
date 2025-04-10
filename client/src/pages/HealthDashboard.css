@@ -319,6 +319,21 @@
     background-color: #16a085;
     transform: translateY(-3px);
   }
+
+  .prediction-box {
+    background-color: #fff9e6;
+    border-left: 5px solid #ffc107;
+    padding: 15px 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+  }
+  
+  .prediction-box h4 {
+    margin-bottom: 10px;
+    color: #ff8c00;
+  }
+  
   
   /* Responsive Styles */
   @media (max-width: 1024px) {

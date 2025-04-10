@@ -9,24 +9,28 @@ import Footer from "./Footer";
 const HealthDashboard = () => {
   const [healthData, setHealthData] = useState(null);
   const [user, setUser] = useState(null);
+  const [prediction, setPrediction] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem('token');
 
     if (!token) return;
 
-    // ✅ Fetch user info
     axios.get('http://localhost:5000/api/users/me', {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(res => setUser(res.data))
     .catch(err => console.error('Error fetching user info:', err));
 
-    // ✅ Fetch health data
     axios.get('http://localhost:5000/api/health/data', {
       headers: { Authorization: `Bearer ${token}` }
     })
-    .then(res => setHealthData(res.data))
+    .then(res => {
+      setHealthData(res.data);
+      if (res.data.prediction) {
+        setPrediction(res.data.prediction);
+      }
+    })
     .catch(err => console.error('Error fetching health data:', err));
   }, []);
 
@@ -34,7 +38,6 @@ const HealthDashboard = () => {
     <div className="Emergency_container">
       <Navbar />
       <section className="main-section">
-        {/* Left Section */}
         <div className="left-section">
           <div className="dashboard-header-row">
             <div className="left-text">
@@ -75,10 +78,15 @@ const HealthDashboard = () => {
               <li>Daily 30-minute exercise recommended.</li>
               <li>Reduce salt intake to manage blood pressure.</li>
             </ul>
+            {prediction && (
+              <div className="prediction-box">
+                <h4>🤖 Gemini AI Prediction</h4>
+                <p>{prediction}</p>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Right Section */}
         <div className="right-section">
           <div className="stats-container">
             <div className="stat-card">

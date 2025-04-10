@@ -1,4 +1,5 @@
 const HealthData = require('../models/HealthData');
+const { getHealthPrediction } = require('../services/geminiService');
 
 // GET: Fetch user health data
 exports.getHealthData = async (req, res) => {
@@ -14,7 +15,7 @@ exports.getHealthData = async (req, res) => {
 exports.submitHealthData = async (req, res) => {
   try {
     const {
-      blood_pressure, // New field for blood pressure
+      blood_pressure,
       heart_rate,
       cholesterol,
       glucose_level,
@@ -31,7 +32,6 @@ exports.submitHealthData = async (req, res) => {
       upcoming_treatment_other
     } = req.body;
 
-    // Validate required fields (including blood_pressure)
     if (
       !blood_pressure ||
       !heart_rate ||
@@ -42,10 +42,9 @@ exports.submitHealthData = async (req, res) => {
       return res.status(400).json({ message: "Missing required fields" });
     }
 
-    // Check if a record exists for this user
     let healthRecord = await HealthData.findOne({ user_id: req.user.id });
+
     if (healthRecord) {
-      // Update the existing record
       healthRecord.blood_pressure = blood_pressure;
       healthRecord.heart_rate = heart_rate;
       healthRecord.cholesterol = cholesterol;
@@ -67,9 +66,13 @@ exports.submitHealthData = async (req, res) => {
       };
 
       await healthRecord.save();
-      return res.status(200).json({ message: 'Health data updated successfully.' });
+
+      const prediction = await getHealthPrediction(req.body);
+      return res.status(200).json({
+        message: 'Health data updated successfully.',
+        prediction
+      });
     } else {
-      // Create a new record if one doesn't exist
       healthRecord = new HealthData({
         user_id: req.user.id,
         blood_pressure,
@@ -94,7 +97,12 @@ exports.submitHealthData = async (req, res) => {
       });
 
       await healthRecord.save();
-      return res.status(201).json({ message: 'Health data saved successfully.' });
+
+      const prediction = await getHealthPrediction(req.body);
+      return res.status(201).json({
+        message: 'Health data saved successfully.',
+        prediction
+      });
     }
   } catch (error) {
     console.error("❌ Submit Error:", error);

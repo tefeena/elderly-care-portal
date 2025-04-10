@@ -12,22 +12,27 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
-            localStorage.setItem('token', res.data.token);
-            localStorage.setItem('role', res.data.user.role); // Store role in localStorage
-
-            alert('Login successful!');
-
-            // Redirect based on role
-            if (res.data.user.role === 'Admin') {
-                navigate('/admin-dashboard');
-            } else {
-                navigate('/health-dashboard');
-            }
+          const res = await axios.post('http://localhost:5000/api/auth/login', {
+            email,
+            password,
+          });
+      
+          localStorage.setItem('token', res.data.token);
+          localStorage.setItem('role', res.data.user.role);
+          localStorage.setItem('userId', res.data.user.id); // ✅ Store user ID here!
+      
+          alert('Login successful!');
+      
+          if (res.data.user.role === 'Admin') {
+            navigate('/admin-dashboard');
+          } else {
+            navigate('/health-dashboard');
+          }
         } catch (err) {
-            alert('Invalid credentials');
+          alert('Invalid credentials');
         }
-    };
+      };
+      
 
 
     return (

@@ -13,6 +13,8 @@ import CaregiverList from "./pages/CaregiverList";
 import UserList from "./pages/UserList";
 import LoggedInHomePage from './pages/LoggedInHomePage';
 import HealthForm from './pages/HealthForm';
+import CaregiverBooking from './pages/CaregiverBooking';
+import PaymentPage from './pages/PaymentPage';
 
 const App = () => {
     return (
@@ -31,6 +33,8 @@ const App = () => {
                 <Route path="/admin/users" element={<UserList />} />
                 <Route path="/health-form" element={<HealthForm />} />
                 <Route path="/logged-in-home" element={<LoggedInHomePage />} />
+                <Route path="/caregivers/book/:id" element={<CaregiverBooking />} />
+                <Route path="/caregivers/payment/:id" element={<PaymentPage />} />
             </Routes>
         </Router>
     );
