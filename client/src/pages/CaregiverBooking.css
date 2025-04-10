@@ -1,29 +1,158 @@
-.plan-options {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin: 30px 0;
-  }
-  .plan-card {
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    width: 150px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .plan-card:hover,
-  .plan-card.selected {
-    border-color: #007bff;
-    background: #f0f8ff;
-  }
-  .proceed-btn {
-    background: #28a745;
-    color: white;
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
+
+.cg-booking-page {
+  min-height: 100vh;
+  padding-top: 60px ;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cg-caregiver-info {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 40px;
+  padding: 40px;
+  background-color: linear-gradient(to right, #f0fdf4, #ecfdf5);
+  color: black;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-bottom:3px solid #34d399;
+}
+
+.cg-caregiver-info:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 30px rgba(15, 23, 42, 0.6);
+}
+
+.cg-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cg-title span {
+  color: rgba(0, 46, 89, 0.8);
+  padding-bottom: 6px;
+}
+
+.cg-details p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  opacity: 0.95;
+}
+
+.cg-section-title {
+  font-size: 2rem;
+  margin: 40px 0 20px;
+  font-weight: 600;
+  color: #0f172a;
+  text-align: center;
+}
+
+.cg-plan-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.cg-plan-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 2rem;
+  cursor: pointer;
+  border: 2px solid #e5e7eb;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+}
+
+.cg-plan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+  border-color: #3b82f6;
+}
+
+.cg-selected {
+  border-color: #10b981;
+  background-color: #ecfdf5;
+  box-shadow: 0 10px 30px rgba(16,185,129,0.25);
+}
+
+.cg-plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.cg-plan-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.cg-plan-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.cg-plan-features {
+  list-style: none;
+  padding-left: 0;
+  text-align: left;
+  margin-top: 12px;
+  color: #475569;
+}
+
+.cg-plan-features li {
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+  font-size: 1rem;
+}
+
+.cg-plan-features li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+}
+
+.cg-proceed-btn {
+  margin-top: 50px;
+  padding: 16px 60px;
+  background-image: linear-gradient(to right, #10b981, #059669);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s;
+  box-shadow: 0 10px 20px rgba(16,185,129,0.4);
+}
+.but_cla{
+  margin-bottom: 60px;
+
+}
+
+.cg-proceed-btn:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(16,185,129,0.6);
+}
+
+.loading,
+.cg-loading {
+  margin-top: 60px;
+  font-size: 1.5rem;
+  color: #475569;
+}

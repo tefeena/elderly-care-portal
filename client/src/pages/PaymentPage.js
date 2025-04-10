@@ -70,9 +70,15 @@ const PaymentPage = () => {
         }</p>
       </div>
 
-      <button className="pay-btn" onClick={handlePayment}>
-        Pay with Stripe
-      </button>
+      <div className="button-group">
+  <button className="cancel-btn" onClick={() => navigate("/caregivers")}>
+    Cancel
+  </button>
+  <button className="pay-btn" onClick={handlePayment}>
+    Pay with Stripe
+  </button>
+</div>
+
     </div>
   );
 };
