@@ -15,6 +15,8 @@ import LoggedInHomePage from './pages/LoggedInHomePage';
 import HealthForm from './pages/HealthForm';
 import CaregiverBooking from './pages/CaregiverBooking';
 import PaymentPage from './pages/PaymentPage';
+import AdminBookingManager from './pages/AdminBookingManager';
+import AdminPlanManager from './pages/AdminPlanManager';
 
 const App = () => {
     return (
@@ -35,6 +37,8 @@ const App = () => {
                 <Route path="/logged-in-home" element={<LoggedInHomePage />} />
                 <Route path="/caregivers/book/:id" element={<CaregiverBooking />} />
                 <Route path="/caregivers/payment/:id" element={<PaymentPage />} />
+                <Route path="/admin/AdminBookingManager" element={<AdminBookingManager />} />
+                <Route path="/admin/AdminPlanManager" element={<AdminPlanManager />} />
             </Routes>
         </Router>
     );

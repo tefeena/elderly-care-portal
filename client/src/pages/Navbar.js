@@ -49,6 +49,8 @@ const Navbar = () => {
               <Link to="/admin-dashboard" onClick={() => setMenuOpen(false)}>Admin Dashboard</Link>
               <Link to="/admin/caregivers" onClick={() => setMenuOpen(false)}>Caregiver List</Link>
               <Link to="/admin/users" onClick={() => setMenuOpen(false)}>User List</Link>
+              <Link to="/admin/AdminBookingManager" onClick={() => setMenuOpen(false)}>Caregivers Booking </Link>
+              <Link to="/admin/AdminPlanManager" onClick={() => setMenuOpen(false)}>Plan Manager</Link>
             </>
           ) : isLoggedIn ? (
             <>

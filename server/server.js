@@ -40,6 +40,7 @@ app.use('/api/users', require("./routes/userRoutes"));
 app.use('/api/health', require('./routes/healthRoutes'));
 app.use('/api/payments', require("./routes/paymentRoutes"));
 app.use('/api/bookings', require('./routes/bookingRoutes'));
+app.use('/api/plans', require('./routes/planRoutes'));
 
 // ✅ Start server
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

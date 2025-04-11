@@ -6,6 +6,10 @@ const BookingSchema = new mongoose.Schema({
   caregiverName: { type: String, required: true },
   plan: { type: String, enum: ["Daily", "Weekly", "Monthly"], required: true },
   amount: { type: Number, required: true },
+  stripeSessionId: { type: String },
+  paid: { type: Boolean, default: false },
+  status: { type: String, enum: ["Pending", "Confirmed", "Cancelled"], default: "Pending" },
+  notes: { type: String },
   createdAt: { type: Date, default: Date.now }
 });
 
