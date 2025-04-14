@@ -810,96 +810,132 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .quick-access-grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
-}
+/* Final Mobile and Tablet Responsive Enhancements */
 
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .home-faq {
-    padding: 50px 5%;
-  }
-
-  .faq-question {
-    font-size: 1.2rem;
-  }
-
-  .faq-answer {
-    font-size: 1rem;
-  }
-}
-
-/* Footer */
-.home-footer {
-  text-align: center;
-  background-color: #2c3e50;
-  color: #fff;
-  padding: 20px;
-  font-size: 16px;
-}
-
-/* Responsive Design for smaller screens */
-@media (max-width: 768px) {
-  .home-features {
-    flex-direction: column;
-  }
-
-  .home-navbar {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .home-nav-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
+@media (max-width: 1024px) {
   .home-banner h2 {
-    font-size: 32px;
+    font-size: 2.5rem;
   }
 
   .home-banner p {
-    font-size: 16px;
+    font-size: 1.2rem;
   }
 
   .home-get-started {
-    font-size: 18px;
-    padding: 15px 30px;
+    font-size: 1.1rem;
+    padding: 12px 28px;
   }
 
-  .home-whats-content {
-    flex-direction: column;
+  .features-content h2,
+  .home-services h2,
+  .home-reviews h2,
+  .home-faq h2 {
+    font-size: 2rem;
   }
 
-  .home-what {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .service-step {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .service-step img {
-    width: 80%;
-    height: auto;
+  .features-content ul li,
+  .service-text p,
+  .faq-answer p {
+    font-size: 1rem;
   }
 
   .review-card {
-    width: 80%;
-    margin-bottom: 20px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-banner {
+    padding: 60px 20px;
+    background-position: center;
   }
 
-  .home-faq {
-    padding: 30px 20px;
-  }
-
-  .faq-item {
+  .features-content,
+  .features-image {
     width: 100%;
+    text-align: center;
+  }
+
+  .home-features {
+    flex-direction: column;
+    padding: 30px 5%;
+  }
+
+  .features-image img {
+    margin: 0 auto;
+  }
+
+  .home-services {
+    padding: 50px 5%;
+  }
+
+  .service-step,
+  .service-step.reverse {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .home-reviews .reviews-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .faq-question {
+    font-size: 1rem;
+    padding: 12px;
+  }
+
+  .faq-answer {
+    padding: 15px;
+  }
+
+  .quick-access-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-footer {
+    font-size: 14px;
+    padding: 15px;
+  }
+}
+/* Tablet Adjustments */
+@media (max-width: 768px) {
+  .cg-dir-booked h2 {
+    font-size: 2rem;
+  }
+
+  .cg-dir-card {
+    padding: 20px;
+  }
+
+  .cg-dir-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .cg-dir-info p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 480px) {
+  .cg-dir-booked {
+    padding: 60px 15px;
+  }
+
+  .cg-dir-booked h2 {
+    font-size: 1.6rem;
+  }
+
+  .cg-dir-card {
+    padding: 18px;
+  }
+
+  .cg-dir-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .cg-dir-info p {
+    font-size: 0.9rem;
   }
 }
