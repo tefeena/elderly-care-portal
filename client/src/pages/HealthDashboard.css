@@ -1,390 +1,429 @@
-/* General Container */
+/* ------------------------------------------
+   Global Layout
+------------------------------------------ */
 .Emergency_container {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    padding: 30px 20px;
-    min-height: 100vh;
-  }
-  
-  /* Main Section */
-  .main-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 20px;
-  }
-  
-  /* Left Section */
-  .left-section {
-    flex: 1 1 35%;
-    min-width: 300px;
-  }
-  
-  .left-section .left-text h2 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #2c3e50;
-  }
-  
-  .left-section .left-text p {
-    font-size: 16px;
-    color: #7f8c8d;
-  }
-  
-  /* Image Container */
-  .image-container {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-  }
-  
-  .profile-img {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  .image-container:hover .profile-img {
-    transform: scale(1.03);
-  }
-  
-  .issue-overlay {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    background: rgba(255, 255, 255, 0.92);
-    padding: 12px 16px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
-  }
-  
-  .issue-overlay h3 {
-    font-size: 20px;
-    margin-bottom: 5px;
-    color: #e74c3c;
-  }
-  
-  .issue-overlay p {
-    font-size: 14px;
-    color: #2c3e50;
-  }
-  
-  /* Extra Health Info Section */
-  .extra-health-info {
-    background: #f0f8ff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-    margin-top: 30px;
-  }
-  
-  .extra-health-info h3 {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #2c3e50;
-    border-bottom: 2px solid #ecf0f1;
-    padding-bottom: 5px;
-  }
-  
-  .extra-health-info ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .extra-health-info li {
-    background: #fff;
-    padding: 12px 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .extra-health-info li::before {
-    content: "✅";
-    color: #4caf50;
-    font-size: 18px;
-  }
-  
-  /* Right Section */
-  .right-section {
-    flex: 1 1 55%;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-top: 30px;
-  }
-  
-  /* Health Stats Section */
-  .stats-container {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .stat-card {
-    flex: 1;
-    min-width: 120px;
-    background: #fff;
-    padding: 20px;
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-  }
-  
-  .stat-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .stat-card h4 {
-    font-size: 18px;
-    margin-bottom: 8px;
-    color: #2c3e50;
-  }
-  
-  .stat-card p {
-    font-size: 22px;
-    font-weight: bold;
-    color: #d9534f;
-  }
-  
-  /* Reminder & Treatment Section */
-  .health-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .reminder-card, .treatment-card {
-    flex: 1;
-    background: #f0f8ff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .reminder-card h3, .treatment-card h3 {
-    display: flex;
-    align-items: center;
-    font-size: 20px;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 10px;
-  }
-  
-  .reminder-card p, .treatment-card p {
-    font-size: 16px;
-    color: #2c3e50;
-  }
-  
-  /* Doctor Info */
-  .doctor-card {
-    display: flex;
-    align-items: center;
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    margin-top: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .doctor-img {
-    width: 80px;
-    height: 80px;
-    margin-right: 15px;
-    border-radius: 8px;
-    object-fit: cover;
-  }
-  
-  .doctor-details h4 {
-    font-size: 18px;
-    margin-bottom: 5px;
-    color: #1abc9c;
-  }
-  
-  .doctor-details p {
-    font-size: 14px;
-    margin-bottom: 3px;
-  }
-  
-  /* Treatment Sections */
-  .treatment-sections {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .treatment-history, .upcoming-treatments {
-    flex: 1;
-    min-width: 140px;
-  }
-  
-  .treatment-card ul {
-    padding: 0;
-    list-style: none;
-  }
-  
-  .treatment-card li {
-    background: #fff;
-    padding: 10px 12px;
-    margin: 5px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-  }
-  
-  /* Sleep Tracker */
-  .sleep-card {
-    text-align: center;
-    background: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .sleep-card h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #2c3e50;
-  }
-  
-  .sleep-timeline {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 15px 0;
-    gap: 10px;
-  }
-  
-  .sleep-dot {
-    width: 14px;
-    height: 14px;
-    background: #ddd;
-    border-radius: 50%;
-    transition: background 0.3s ease;
-  }
-  
-  .sleep-dot.completed {
-    background: #4caf50;
-  }
-  
-  .sleep-line {
-    flex: 1;
-    height: 4px;
-    background: #ddd;
-    border-radius: 4px;
-  }
-  
-  /* Footer */
-  .Emergency_footer {
-    margin-top: 30px;
-    text-align: center;
-    padding: 15px;
-    color: #7f8c8d;
-    font-size: 14px;
-  }
-  
-  /* Header Row */
-  .dashboard-header-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Add Health Button */
-  .add-health-btn {
-    background-color: #1abc9c;
-    color: white;
-    border: none;
-    padding: 12px 18px;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .add-health-btn:hover {
-    background-color: #16a085;
-    transform: translateY(-3px);
-  }
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #edf0f8 0%, #f4f9ff 100%);
+  padding: 30px 20px;
+  min-height: 100vh;
+  color: #2c3e50;
+}
 
-  .prediction-box {
-    background-color: #fff9e6;
-    border-left: 5px solid #ffc107;
-    padding: 15px 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+.main-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* ------------------------------------------
+   Left Section
+------------------------------------------ */
+.left-section {
+  flex: 1 1 35%;
+  min-width: 300px;
+}
+
+.left-section .left-text h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, #0f9b8e, #43cea2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.left-section .left-text p {
+  font-size: 16px;
+  color: #607d8b;
+}
+
+/* ------------------------------------------
+   Image with Overlay
+------------------------------------------ */
+.image-container {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 20px;
+  box-shadow: 0px 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+.profile-img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out;
+}
+
+.image-container:hover .profile-img {
+  transform: scale(1.05);
+}
+
+.issue-overlay {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 14px 18px;
+  border-radius: 10px;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
+  animation: fadeIn 1s ease-in;
+}
+
+.issue-overlay h3 {
+  color: #e53935;
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.issue-overlay p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ------------------------------------------
+   Extra Health Info
+------------------------------------------ */
+.extra-health-info {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 25px;
+  margin-top: 30px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.extra-health-info h3 {
+  font-size: 22px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #e0f2f1;
+  padding-bottom: 6px;
+}
+
+.extra-health-info ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.extra-health-info li {
+  background: #ffffff;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.extra-health-info li:hover {
+  transform: scale(1.02);
+}
+
+.extra-health-info li::before {
+  content: "✅";
+  color: #4caf50;
+  font-size: 18px;
+}
+
+/* ------------------------------------------
+   Right Section
+------------------------------------------ */
+.right-section {
+  flex: 1 1 55%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* ------------------------------------------
+   Stat Cards
+------------------------------------------ */
+.stats-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat-card {
+  flex: 1;
+  min-width: 140px;
+  background: linear-gradient(to right, #ffffff, #e0f7fa);
+  border-left: 6px solid #26a69a;
+  padding: 20px;
+  text-align: center;
+  border-radius: 14px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 28px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card h4 {
+  font-size: 18px;
+  color: #00796b;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.stat-card p {
+  font-size: 24px;
+  font-weight: 700;
+  color: #e65100;
+}
+
+/* ------------------------------------------
+   Doctor Reminder & Treatments
+------------------------------------------ */
+.health-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.reminder-card,
+.treatment-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.reminder-card h3,
+.treatment-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.doctor-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+}
+
+.doctor-img {
+  width: 80px;
+  height: 80px;
+  margin-right: 15px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.doctor-details h4 {
+  font-size: 18px;
+  color: #26a69a;
+  margin-bottom: 5px;
+}
+
+.doctor-details p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+/* ------------------------------------------
+   Treatment History and Upcoming
+------------------------------------------ */
+.treatment-sections {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.treatment-history,
+.upcoming-treatments {
+  flex: 1;
+}
+
+.treatment-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.treatment-card li {
+  background: #f9f9f9;
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin: 6px 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* ------------------------------------------
+   Sleep Tracker
+------------------------------------------ */
+.sleep-card {
+  text-align: center;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.sleep-card h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.sleep-timeline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+  gap: 10px;
+}
+
+.sleep-dot {
+  width: 14px;
+  height: 14px;
+  background: #ccc;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.sleep-dot.completed {
+  background: #4caf50;
+  animation: pulse 1.2s infinite;
+}
+
+.sleep-line {
+  flex: 1;
+  height: 4px;
+  background: #ddd;
+  border-radius: 4px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+  70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+}
+
+/* ------------------------------------------
+   Prediction Box
+------------------------------------------ */
+.prediction-box {
+  background: linear-gradient(135deg, #fff8e1, #fffde7);
+  border-left: 5px solid #ffc107;
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  animation: fadeIn 0.6s ease;
+}
+
+.prediction-box h4 {
+  color: #f57c00;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------------------------------
+   Buttons & Header
+------------------------------------------ */
+.dashboard-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.add-health-btn {
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.add-health-btn:hover {
+  background-color: #14977f;
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------
+   Footer
+------------------------------------------ */
+.Emergency_footer {
+  margin-top: 30px;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #90a4ae;
+}
+
+/* ------------------------------------------
+   Responsive
+------------------------------------------ */
+@media (max-width: 1024px) {
+  .profile-img {
+    height: 350px;
   }
-  
-  .prediction-box h4 {
-    margin-bottom: 10px;
-    color: #ff8c00;
+  .stat-card p {
+    font-size: 20px;
   }
-  
-  
-  /* Responsive Styles */
-  @media (max-width: 1024px) {
-    .profile-img {
-      height: 350px;
-    }
-    
-    .stat-card p {
-      font-size: 20px;
-    }
-    
-    .left-section .left-text h2 {
-      font-size: 24px;
-    }
-    
-    .extra-health-info h3 {
-      font-size: 20px;
-    }
+  .left-section .left-text h2 {
+    font-size: 24px;
   }
-  
-  @media (max-width: 768px) {
-    .main-section {
-      flex-direction: column;
-      gap: 20px;
-    }
-    .left-section, .right-section {
-      width: 100%;
-    }
-    .profile-img {
-      height: 300px;
-    }
-    .dashboard-header-row {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
+}
+
+@media (max-width: 768px) {
+  .main-section {
+    flex-direction: column;
+    gap: 20px;
   }
-  
-  @media (max-width: 480px) {
-    .profile-img {
-      height: 250px;
-    }
-    .add-health-btn {
-      padding: 10px 14px;
-      font-size: 14px;
-    }
-    .stat-card h4 {
-      font-size: 16px;
-    }
-    .stat-card p {
-      font-size: 18px;
-    }
+  .left-section,
+  .right-section {
+    width: 100%;
   }
-  
+  .profile-img {
+    height: 300px;
+  }
+  .dashboard-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-img {
+    height: 250px;
+  }
+  .add-health-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+  .stat-card h4 {
+    font-size: 16px;
+  }
+  .stat-card p {
+    font-size: 18px;
+  }
+}
