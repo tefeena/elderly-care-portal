@@ -4,7 +4,7 @@ import axios from "axios";
 import "./CaregiverBooking.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 const CaregiverBooking = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const CaregiverBooking = () => {
 
     // Fetch available plans from MongoDB
     axios
-      .get("http://localhost:5000/api/plans")
+      .get(`${API_BASE}/api/plans`)
       .then((res) => setPlans(res.data))
       .catch((err) => console.error("Error fetching plans", err));
   }, [id]);

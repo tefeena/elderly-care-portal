@@ -3,6 +3,7 @@ import axios from "axios";
 import { Table, Button, Container, Spinner } from "react-bootstrap";
 import Navbar from "./Navbar"; 
 import "./AdminDashboard.css";
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 
 const CaregiverList = () => {
   const [caregivers, setCaregivers] = useState([]);
@@ -10,7 +11,7 @@ const CaregiverList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/caregivers/all") // Fetch all caregivers including unapproved
+      .get(`${API_BASE}/api/caregivers/all`) // Fetch all caregivers including unapproved
       .then((res) => {
         setCaregivers(res.data);
         setLoading(false);

@@ -5,7 +5,7 @@ import { FaRegClock } from 'react-icons/fa';
 import './HealthDashboard.css';
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 const HealthDashboard = () => {
   const [healthData, setHealthData] = useState(null);
   const [user, setUser] = useState(null);

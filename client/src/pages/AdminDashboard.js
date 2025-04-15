@@ -5,6 +5,7 @@ import axios from "axios";
 import "./AdminDashboard.css";
 import Navbar from "./Navbar";
 
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 const AdminDashboard = () => {
   const [stats, setStats] = useState({
     users: 0,
@@ -16,7 +17,7 @@ const AdminDashboard = () => {
     const fetchStats = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/users/stats", {
+        const res = await axios.get(`${API_BASE}/api/users/stats`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setStats(res.data);

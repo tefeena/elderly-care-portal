@@ -3,6 +3,7 @@ import axios from "axios";
 import { Table, Button, Container, Spinner, Modal, Form } from "react-bootstrap";
 import Navbar from "./Navbar";
 import "./AdminDashboard.css";
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 
 const AdminBookingManager = () => {
   const [bookings, setBookings] = useState([]);
@@ -16,7 +17,7 @@ const AdminBookingManager = () => {
 
   const fetchBookings = () => {
     axios
-      .get("http://localhost:5000/api/bookings")
+      .get(`${API_BASE}/api/bookings`)
       .then((res) => {
         setBookings(res.data);
         setLoading(false);

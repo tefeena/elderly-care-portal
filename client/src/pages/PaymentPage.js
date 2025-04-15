@@ -13,7 +13,8 @@ const PaymentPage = () => {
   const [caregiver, setCaregiver] = useState(location.state?.caregiver || null);
   const [plan, setPlan] = useState(location.state?.plan || "");
   const [loading, setLoading] = useState(!caregiver);
-
+  
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
   useEffect(() => {
     if (!caregiver && id) {
       axios.get(`http://localhost:5000/api/caregivers/${id}`)
@@ -37,7 +38,7 @@ const PaymentPage = () => {
       const amount = plan === "Daily" ? 50 : plan === "Weekly" ? 300 : 1000;
       const userId = localStorage.getItem("userId");
   
-      const { data } = await axios.post("http://localhost:5000/api/payments/create-checkout-session", {
+      const { data } = await axios.post(`${API_BASE}/api/payments/create-checkout-session`, {
         caregiverId: caregiver._id,
         caregiverName: caregiver.name,
         userId,

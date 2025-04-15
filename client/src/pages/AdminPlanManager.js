@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import Navbar from "./Navbar";
 import "./AdminDashboard.css";
-
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 const AdminPlanManager = () => {
   const [plans, setPlans] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -29,7 +29,7 @@ const AdminPlanManager = () => {
 
   const fetchPlans = () => {
     axios
-      .get("http://localhost:5000/api/plans")
+      .get(`${API_BASE}/api/plans`)
       .then((res) => {
         setPlans(res.data);
         setLoading(false);
@@ -58,7 +58,7 @@ const AdminPlanManager = () => {
 
     const request = editingPlan
       ? axios.put(`http://localhost:5000/api/plans/${editingPlan._id}`, payload)
-      : axios.post("http://localhost:5000/api/plans", payload);
+      : axios.post(`${API_BASE}/api/plans`, payload);
 
     request
       .then(() => {

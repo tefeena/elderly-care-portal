@@ -5,7 +5,7 @@ import "./HomePage.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import axios from "axios";
-
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 const HomePage = () => {
   const navigate = useNavigate();
   const [health, setHealth] = useState(null);
@@ -14,7 +14,7 @@ const HomePage = () => {
     const token = localStorage.getItem("token");
 
     axios
-      .get("http://localhost:5000/api/health/data", {
+      .get(`${API_BASE}/api/health/data`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

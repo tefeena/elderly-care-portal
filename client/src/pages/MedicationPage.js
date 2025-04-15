@@ -4,6 +4,7 @@ import "animate.css";
 import "./MedicationPage.css";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 const MedicationPage = () => {
   const [medications, setMedications] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -32,7 +33,7 @@ const MedicationPage = () => {
 
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:5000/api/medications/all", {
+      const response = await axios.get(`${API_BASE}/api/medications/all`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMedications(response.data);
@@ -80,7 +81,7 @@ const MedicationPage = () => {
             setMedications(medications.map((med) => (med._id === editingId ? response.data.medication : med)));
         } else {
             // ✅ Add new medication
-            const response = await axios.post("http://localhost:5000/api/medications/add", newMedication, {
+            const response = await axios.post(`${API_BASE}/api/medications/add`, newMedication, {
                 headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
             });
 

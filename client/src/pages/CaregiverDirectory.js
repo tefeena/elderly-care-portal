@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "./CaregiverDirectory.css";
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 
 const CaregiverDirectory = () => {
   const [caregivers, setCaregivers] = useState([]);
@@ -27,7 +28,7 @@ const CaregiverDirectory = () => {
     setIsLoggedIn(!!token);
 
     axios
-      .get("http://localhost:5000/api/caregivers/")
+      .get(`${API_BASE}/api/caregivers/`)
       .then((res) => setCaregivers(res.data))
       .catch((err) => console.error("Error fetching caregivers:", err));
 
@@ -46,7 +47,7 @@ const CaregiverDirectory = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/api/caregivers/register", newCaregiver)
+      .post(`${API_BASE}/api/caregivers/register`, newCaregiver)
       .then(() => {
         alert("Caregiver registered successfully! Pending admin approval.");
         setNewCaregiver({

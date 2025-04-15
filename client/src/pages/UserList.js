@@ -3,7 +3,7 @@ import axios from "axios";
 import { Table, Button, Container, Modal, Form, Spinner } from "react-bootstrap";
 import "./AdminDashboard.css";
 import Navbar from "./Navbar";
-
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,7 +12,7 @@ const UserList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/users")
+      .get(`${API_BASE}/api/users`)
       .then((res) => {
         setUsers(res.data);
         setLoading(false);
