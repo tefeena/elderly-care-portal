@@ -15,7 +15,7 @@ const CaregiverBooking = () => {
   useEffect(() => {
     // Fetch caregiver by ID
     axios
-      .get(`http://localhost:5000/api/caregivers/${id}`)
+      .get(`${API_BASE}/api/caregivers/${id}`)
       .then((res) => setCaregiver(res.data))
       .catch((err) => console.error("Error fetching caregiver", err));
 

@@ -17,7 +17,7 @@ const PaymentPage = () => {
   const API_BASE = process.env.REACT_APP_API_BASE_URL;
   useEffect(() => {
     if (!caregiver && id) {
-      axios.get(`http://localhost:5000/api/caregivers/${id}`)
+      axios.get(`${API_BASE}/api/caregivers/${id}`)
         .then(res => {
           setCaregiver(res.data);
           const bookingInfo = JSON.parse(localStorage.getItem("bookingInfo"));

@@ -27,7 +27,7 @@ const UserList = () => {
   const deleteUser = (id) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       axios
-        .delete(`http://localhost:5000/api/users/${id}`)
+        .delete(`${API_BASE}/api/users/${id}`)
         .then(() => setUsers(users.filter((user) => user._id !== id)))
         .catch((err) => console.error("Error deleting user", err));
     }
@@ -40,7 +40,7 @@ const UserList = () => {
 
   const handleSaveChanges = () => {
     axios
-      .put(`http://localhost:5000/api/users/${selectedUser._id}`, selectedUser)
+      .put(`${API_BASE}/api/users/${selectedUser._id}`, selectedUser)
       .then(() => {
         setUsers(users.map((user) => (user._id === selectedUser._id ? selectedUser : user)));
         setShowModal(false);

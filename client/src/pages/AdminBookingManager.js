@@ -30,7 +30,7 @@ const AdminBookingManager = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/api/bookings/${id}`)
+      .delete(`${API_BASE}/api/bookings/${id}`)
       .then(() => {
         setBookings(bookings.filter((booking) => booking._id !== id));
       })
@@ -44,7 +44,7 @@ const AdminBookingManager = () => {
 
   const handleSaveEdit = () => {
     axios
-      .put(`http://localhost:5000/api/bookings/${selectedBooking._id}`, selectedBooking)
+      .put(`${API_BASE}/api/bookings/${selectedBooking._id}`, selectedBooking)
       .then((res) => {
         fetchBookings();
         setShowEditModal(false);

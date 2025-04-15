@@ -57,7 +57,7 @@ const AdminPlanManager = () => {
     };
 
     const request = editingPlan
-      ? axios.put(`http://localhost:5000/api/plans/${editingPlan._id}`, payload)
+      ? axios.put(`${API_BASE}/api/plans/${editingPlan._id}`, payload)
       : axios.post(`${API_BASE}/api/plans`, payload);
 
     request
@@ -73,7 +73,7 @@ const AdminPlanManager = () => {
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this plan?")) {
       axios
-        .delete(`http://localhost:5000/api/plans/${id}`)
+        .delete(`${API_BASE}/api/plans/${id}`)
         .then(() => fetchPlans())
         .catch((err) => console.error("Error deleting plan", err));
     }

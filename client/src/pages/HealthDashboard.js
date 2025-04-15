@@ -16,13 +16,13 @@ const HealthDashboard = () => {
 
     if (!token) return;
 
-    axios.get('http://localhost:5000/api/users/me', {
+    axios.get('${API_BASE}/api/users/me', {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(res => setUser(res.data))
     .catch(err => console.error('Error fetching user info:', err));
 
-    axios.get('http://localhost:5000/api/health/data', {
+    axios.get('${API_BASE}/api/health/data', {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(res => {

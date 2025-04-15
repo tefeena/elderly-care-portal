@@ -24,7 +24,7 @@ const CaregiverList = () => {
 
   const updateCaregiverStatus = (id, status) => {
     axios
-      .put(`http://localhost:5000/api/caregivers/approve/${id}`, { approved: status })
+      .put(`${API_BASE}/api/caregivers/approve/${id}`, { approved: status })
       .then(() => {
         setCaregivers(
           caregivers.map((caregiver) =>
@@ -37,7 +37,7 @@ const CaregiverList = () => {
 
   const deleteCaregiver = (id) => {
     axios
-      .delete(`http://localhost:5000/api/caregivers/${id}`)
+      .delete(`${API_BASE}/api/caregivers/${id}`)
       .then(() =>
         setCaregivers(caregivers.filter((caregiver) => caregiver._id !== id))
       )

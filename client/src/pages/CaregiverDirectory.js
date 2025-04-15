@@ -34,7 +34,7 @@ const CaregiverDirectory = () => {
 
     if (userId) {
       axios
-        .get(`http://localhost:5000/api/bookings/${userId}`)
+        .get(`${API_BASE}/api/bookings/${userId}`)
         .then((res) => setBookings(res.data))
         .catch((err) => console.error("Error fetching bookings:", err));
     }

@@ -27,7 +27,7 @@ const HealthForm = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    axios.get('http://localhost:5000/api/health/data', {
+    axios.get('${API_BASE}/api/health/data', {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(res => {
@@ -63,7 +63,7 @@ const HealthForm = () => {
     const token = localStorage.getItem('token');
 
     try {
-      await axios.post('http://localhost:5000/api/health/submit', formData, {
+      await axios.post('${API_BASE}/api/health/submit', formData, {
         headers: {
           Authorization: `Bearer ${token}`
         }

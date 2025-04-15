@@ -70,7 +70,7 @@ const MedicationPage = () => {
         if (editingId) {
             // ✅ Update existing medication
             const response = await axios.put(
-                `http://localhost:5000/api/medications/update/${editingId}`,
+                `${API_BASE}/api/medications/update/${editingId}`,
                 newMedication,
                 { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` } }
             );
@@ -103,7 +103,7 @@ const MedicationPage = () => {
 
   const deleteMedication = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/medications/delete/${id}`, {
+      await axios.delete(`${API_BASE}/api/medications/delete/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
 
