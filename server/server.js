@@ -13,6 +13,7 @@ const allowedOrigins = [
   "https://elderly-care-portal-jqfvrczyb-tefeenas-projects.vercel.app",
   "https://elderly-care-portal-rgee80btd-tefeenas-projects.vercel.app",
   "https://elderly-care-portal-57ozab22w-tefeenas-projects.vercel.app",
+  "https://elderly-care-portal-9achu0b2o-tefeenas-projects.vercel.app"
 ];
 
 const corsOptions = {
