@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Register.css'; 
+
 const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
 const Registration = () => {
     const [user, setUser] = useState({
         firstName: '',
@@ -10,7 +12,7 @@ const Registration = () => {
         email: '',
         password: '',
         confirmPassword: '',
-        role: '', // Added role field
+        role: '',
     });
 
     const [error, setError] = useState({});
@@ -22,7 +24,7 @@ const Registration = () => {
 
     const validateForm = () => {
         let errors = {};
-        
+
         if (!user.firstName.match(/^[A-Za-z]+$/)) {
             errors.firstName = "First Name should contain only letters.";
         }
@@ -48,91 +50,48 @@ const Registration = () => {
 
     const handleRegister = async () => {
         if (!validateForm()) return;
-      
+
         const payload = {
-          name: `${user.firstName} ${user.lastName}`,
-          email: user.email,
-          password: user.password,
-          role: user.role,
+            name: `${user.firstName} ${user.lastName}`,
+            email: user.email,
+            password: user.password,
+            role: user.role,
         };
-      
+
         try {
-          await axios.post('${API_BASE}/api/auth/register', payload);
-          alert('Registration successful! Please login.');
-          navigate('/login');
+            await axios.post(`${API_BASE}/api/auth/register`, payload); // ✅ Corrected
+            alert('Registration successful! Please login.');
+            navigate('/login');
         } catch (err) {
-          alert(err.response?.data?.error || 'Registration failed. Try again.');
+            alert(err.response?.data?.error || 'Registration failed. Try again.');
         }
-      };
-      
+    };
 
     return (
         <div className="register-container">
             <h1>Sign Up</h1>
             <h2>Create an Account</h2>
 
-            <input 
-                type="text" 
-                name="firstName" 
-                placeholder="First Name" 
-                value={user.firstName} 
-                onChange={handleChange} 
-                className="input-field" 
-            />
+            <input type="text" name="firstName" placeholder="First Name" value={user.firstName} onChange={handleChange} className="input-field" />
             {error.firstName && <p className="error">{error.firstName}</p>}
 
-            <input 
-                type="text" 
-                name="lastName" 
-                placeholder="Last Name" 
-                value={user.lastName} 
-                onChange={handleChange}    
-                className="input-field" 
-            />
+            <input type="text" name="lastName" placeholder="Last Name" value={user.lastName} onChange={handleChange} className="input-field" />
             {error.lastName && <p className="error">{error.lastName}</p>}
 
-            <input 
-                type="email" 
-                name="email" 
-                placeholder="Email" 
-                value={user.email} 
-                onChange={handleChange} 
-                className="input-field" 
-            />
+            <input type="email" name="email" placeholder="Email" value={user.email} onChange={handleChange} className="input-field" />
             {error.email && <p className="error">{error.email}</p>}
 
-            <input 
-                type="password" 
-                name="password" 
-                placeholder="Password" 
-                value={user.password} 
-                onChange={handleChange} 
-                className="input-field" 
-            />
+            <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} className="input-field" />
             {error.password && <p className="error">{error.password}</p>}
 
-            <input 
-                type="password" 
-                name="confirmPassword" 
-                placeholder="Confirm Password" 
-                value={user.confirmPassword} 
-                onChange={handleChange} 
-                className="input-field" 
-            />
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" value={user.confirmPassword} onChange={handleChange} className="input-field" />
             {error.confirmPassword && <p className="error">{error.confirmPassword}</p>}
 
-            {/* Role Selection Dropdown */}
-            <select 
-                name="role" 
-                value={user.role} 
-                onChange={handleChange} 
-                className="input-field"
-            >
+            <select name="role" value={user.role} onChange={handleChange} className="input-field">
                 <option value="">Select Role</option>
                 <option value="Admin">Admin</option>
-                <option value="User">User</option> {/* ✅ Ensure it's "User" with capital U */}
+                <option value="User">User</option>
             </select>
-
             {error.role && <p className="error">{error.role}</p>}
 
             <button onClick={handleRegister} className="register-button">Submit</button>
