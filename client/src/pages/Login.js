@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './Register.css';
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+const API_BASE = process.env.REACT_APP_API_BASE_URL;
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -12,7 +13,9 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-          const res = await axios.post('http://localhost:5000/api/auth/login', {
+
+          const res = await axios.post(`${API_BASE}/api/auth/login`, {
+
             email,
             password,
           });
