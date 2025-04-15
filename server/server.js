@@ -6,16 +6,21 @@ const cors = require('cors');
 
 const app = express();
 
-// ✅ Middleware: CORS for frontend access
+// ✅ Allow both local and Vercel frontend origins
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://elderly-care-portal-jqfvrczyb-tefeenas-projects.vercel.app", // ✅ your actual Vercel frontend domain
+];
+
 app.use(cors({
-  origin: process.env.CLIENT_URL || "http://localhost:3000",
-  credentials: true
+  origin: allowedOrigins,
+  credentials: true,
 }));
 
-// ✅ Stripe Webhook (should come before body parsing)
+// ✅ Stripe Webhook (comes before express.json)
 app.use("/api/webhook", require("./routes/stripeWebhook"));
 
-// ✅ JSON Body Parser (after webhook)
+// ✅ Body Parser
 app.use(express.json());
 
 // ✅ MongoDB Connection
@@ -27,12 +32,12 @@ mongoose.connect(MONGO_URI)
     process.exit(1);
   });
 
-// ✅ Basic health check route
+// ✅ Health check
 app.get("/", (req, res) => {
   res.send("🚑 Elderly Care Portal API is Live!");
 });
 
-// ✅ Mount all API routes
+// ✅ Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/medications', require('./routes/medicationRoutes'));
 app.use('/api/caregivers', require('./routes/caregiverRoutes'));
@@ -42,7 +47,7 @@ app.use('/api/payments', require('./routes/paymentRoutes'));
 app.use('/api/bookings', require('./routes/bookingRoutes'));
 app.use('/api/plans', require('./routes/planRoutes'));
 
-// ✅ Start the server
+// ✅ Server Listening
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
