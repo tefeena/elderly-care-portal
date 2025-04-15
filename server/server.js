@@ -6,18 +6,28 @@ const cors = require('cors');
 
 const app = express();
 
-// ✅ Allow both local and Vercel frontend origins
+// ✅ Allow dynamic CORS origin checking
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://elderly-care-portal-jqfvrczyb-tefeenas-projects.vercel.app", // ✅ your actual Vercel frontend domain
+  "https://elderly-care-portal.vercel.app",
+  "https://elderly-care-portal-jqfvrczyb-tefeenas-projects.vercel.app",
+  "https://elderly-care-portal-rgee80btd-tefeenas-projects.vercel.app",
 ];
 
-app.use(cors({
-  origin: allowedOrigins,
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
-}));
+};
 
-// ✅ Stripe Webhook (comes before express.json)
+app.use(cors(corsOptions));
+
+// ✅ Stripe Webhook (must come before express.json)
 app.use("/api/webhook", require("./routes/stripeWebhook"));
 
 // ✅ Body Parser
@@ -47,7 +57,7 @@ app.use('/api/payments', require('./routes/paymentRoutes'));
 app.use('/api/bookings', require('./routes/bookingRoutes'));
 app.use('/api/plans', require('./routes/planRoutes'));
 
-// ✅ Server Listening
+// ✅ Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
