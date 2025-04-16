@@ -10,7 +10,7 @@ const API_BASE = process.env.REACT_APP_API_BASE_URL;
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false); // optional
+  const [loading, setLoading] = useState(false); 
   const navigate = useNavigate();
 
   const handleLogin = async () => {
