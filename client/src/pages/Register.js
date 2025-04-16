@@ -59,7 +59,7 @@ const Registration = () => {
         };
 
         try {
-            await axios.post(`${API_BASE}/api/auth/register`, payload); // ✅ Corrected
+            await axios.post(`${API_BASE}/api/auth/register`, payload); 
             alert('Registration successful! Please login.');
             navigate('/login');
         } catch (err) {
