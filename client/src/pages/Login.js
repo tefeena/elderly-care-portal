@@ -21,10 +21,17 @@ const Login = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post(`${API_BASE}/api/auth/login`, {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        `${API_BASE}/api/auth/login`,
+        { email, password },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true, 
+        }
+      );
+      
 
       // Save to localStorage
       localStorage.setItem('token', res.data.token);
