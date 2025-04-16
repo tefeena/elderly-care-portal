@@ -18,41 +18,40 @@ const Login = () => {
       alert("Please enter both email and password.");
       return;
     }
-
+  
     try {
       setLoading(true);
-      const res = await axios.post(
-        `${API_BASE}/api/auth/login`,
-        { email, password },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true, 
+  
+      const res = await axios.post(`${API_BASE}/api/auth/login`, {
+        email,
+        password,
+      }, {
+        headers: {
+          "Content-Type": "application/json",
         }
-      );
-      
-
-      // Save to localStorage
+      });
+  
+      // ✅ Save to localStorage
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('role', res.data.user.role);
       localStorage.setItem('userId', res.data.user.id);
-
+  
       alert('Login successful!');
-
+  
       if (res.data.user.role === 'Admin') {
         navigate('/admin-dashboard');
       } else {
         navigate('/health-dashboard');
       }
     } catch (err) {
-      console.error("Login error:", err);
-      const msg = err.response?.data?.error || 'Login failed. Please try again.';
+      console.error("Login error:", err.response?.data || err.message);
+      const msg = err.response?.data?.message || 'Login failed. Please check your credentials.';
       alert(msg);
     } finally {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="Login_container">
