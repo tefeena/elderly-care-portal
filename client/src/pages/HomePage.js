@@ -31,7 +31,7 @@ const HomePage = () => {
         <meta name="description" content="Discover compassionate care for seniors. Book caregivers, track health, and manage medication reminders from one seamless platform." />
         <meta name="keywords" content="elderly care, senior health, caregiver portal, medication reminders, healthcare, compassionate care, health monitoring, wellness" />
         <meta name="author" content="Elderly Care Team" />
-        <link rel="canonical" href="http://localhost:3000" />
+        <link rel="canonical" href="https://elderly-care-portal.vercel.app" />
       </Helmet>
 
       {/* Navbar */}

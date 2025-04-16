@@ -25,10 +25,9 @@ router.post("/create-checkout-session", async (req, res) => {
           quantity: 1,
         },
       ],
-      success_url: "http://localhost:3000/health-dashboard",
-      cancel_url: "http://localhost:3000/caregivers",
+      success_url: "https://elderly-care-portal.vercel.app/health-dashboard",
+      cancel_url: "https://elderly-care-portal.vercel.app/caregivers",
 
-      // ✅ Required for MongoDB booking via webhook
       metadata: {
         userId,
         caregiverId,
