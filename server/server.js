@@ -7,14 +7,14 @@ const cors = require('cors');
 const app = express();
 
 // ✅ Allow dynamic CORS origin checking
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://elderly-care-portal.vercel.app",
-];
-
 const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (
+      !origin ||
+      origin === "http://localhost:3000" ||
+      origin === "https://elderly-care-portal.vercel.app" ||
+      /\.vercel\.app$/.test(origin) // ✅ allows all Vercel preview subdomains
+    ) {
       callback(null, true);
     } else {
       console.log("❌ CORS blocked origin:", origin);
@@ -23,8 +23,6 @@ const corsOptions = {
   },
   credentials: true,
 };
-
-app.use(cors(corsOptions));
 
 app.use(cors(corsOptions));
 
