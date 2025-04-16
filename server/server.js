@@ -10,7 +10,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:3000",
   "https://elderly-care-portal.vercel.app",
-  "https://elderly-care-portal-ncpghacf7-tefeenas-projects.vercel.app",
+  "https://elderly-care-portal-6udj29fzw-tefeenas-projects.vercel.app",
 ];
 
 const corsOptions = {
