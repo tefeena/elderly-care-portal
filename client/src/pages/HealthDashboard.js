@@ -13,16 +13,18 @@ const HealthDashboard = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-
+  
     if (!token) return;
-
-    axios.get('${API_BASE}/api/users/me', {
+  
+    // ✅ Fetch logged-in user details
+    axios.get(`${API_BASE}/api/users/me`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(res => setUser(res.data))
     .catch(err => console.error('Error fetching user info:', err));
-
-    axios.get('${API_BASE}/api/health/data', {
+  
+    // ✅ Fetch health data
+    axios.get(`${API_BASE}/api/health/data`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(res => {
@@ -33,6 +35,7 @@ const HealthDashboard = () => {
     })
     .catch(err => console.error('Error fetching health data:', err));
   }, []);
+  
 
   return (
     <div className="Emergency_container">
