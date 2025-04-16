@@ -25,7 +25,7 @@ router.post("/create-checkout-session", async (req, res) => {
           quantity: 1,
         },
       ],
-      success_url: "https://elderly-care-portal.vercel.app/health-dashboard",
+      success_url: "https://elderly-care-portal.vercel.app/caregivers",
       cancel_url: "https://elderly-care-portal.vercel.app/caregivers",
 
       metadata: {

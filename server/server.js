@@ -1,19 +1,18 @@
 require('dotenv').config();
-
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
 
-// ✅ Allow dynamic CORS origin checking
+// ✅ CORS configuration
 const corsOptions = {
   origin: function (origin, callback) {
     if (
       !origin ||
       origin === "http://localhost:3000" ||
       origin === "https://elderly-care-portal.vercel.app" ||
-      /\.vercel\.app$/.test(origin) // ✅ allows all Vercel preview subdomains
+      /\.vercel\.app$/.test(origin)
     ) {
       callback(null, true);
     } else {
@@ -26,13 +25,13 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// ✅ Stripe Webhook (must come before express.json)
+// ✅ Stripe Webhook (must come BEFORE express.json)
 app.use("/api/webhook", require("./routes/stripeWebhook"));
 
-// ✅ Body Parser
+// ✅ Body parser AFTER webhook to keep raw body for Stripe
 app.use(express.json());
 
-// ✅ MongoDB Connection
+// ✅ MongoDB connection
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/elderly-care";
 mongoose.connect(MONGO_URI)
   .then(() => console.log("✅ MongoDB Connected Successfully"))
@@ -41,12 +40,12 @@ mongoose.connect(MONGO_URI)
     process.exit(1);
   });
 
-// ✅ Health check
+// ✅ Health check route
 app.get("/", (req, res) => {
   res.send("🚑 Elderly Care Portal API is Live!");
 });
 
-// ✅ Routes
+// ✅ API routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/medications', require('./routes/medicationRoutes'));
 app.use('/api/caregivers', require('./routes/caregiverRoutes'));
