@@ -351,7 +351,7 @@
 /* ======================= */
 
 /* Tablets (max-width: 768px) */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .Emergency_banner {
     height: 300px;
   }
@@ -367,6 +367,9 @@
     margin-right: 0;
     margin-bottom: 20px;
     height: 250px;
+  }
+  .Emergency_info{
+    display: none;
   }
   .Emergency_info h2 {
     font-size: 36px;
@@ -416,6 +419,7 @@
   .Emergency_image {
     height: 200px;
   }
+  
   .Emergency_info h2 {
     font-size: 24px;
   }
