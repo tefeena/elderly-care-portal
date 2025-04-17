@@ -243,6 +243,9 @@
     .medication-form {
       padding: 20px 15px;
     }
+    table{
+      overflow-x: scroll;
+    }
   }
   
   /* Further adjustments for tablets and mobile */
@@ -264,6 +267,10 @@
       padding: 12px;
       font-size: 0.9rem;
     }
+    .edit-btn{
+      margin-bottom: 10px;
+    }
+   
   }
   
   @media (max-width: 480px) {

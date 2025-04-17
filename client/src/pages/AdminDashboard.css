@@ -289,9 +289,7 @@
   
   /* Extra Small Devices (max-width: 576px) */
   @media (max-width: 576px) {
-    .dashboard-header h1 {
-      font-size: 2rem;
-    }
+    
     .dashboard-header p {
       font-size: 1rem;
     }
@@ -384,4 +382,57 @@
       transform: translateY(0);
     }
   }
+  @media (max-width: 992px) {
+    .dashboard-header h1 {
+      font-size: 2.5rem;
+    }
+  }
   
+  @media (max-width: 768px) {
+    .dashboard-header h1 {
+      font-size: 2.2rem;
+    }
+  
+    .dashboard-header p {
+      font-size: 1rem;
+    }
+  
+    .stat-card .card-body {
+      padding: 20px 15px;
+    }
+  
+    .stat-card h4 {
+      font-size: 1.3rem;
+    }
+  
+    .stat-card p {
+      font-size: 1.7rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .dashboard-header h1 {
+      font-size: 2rem;
+    }
+  
+    .dashboard-header p {
+      font-size: 0.95rem;
+    }
+  
+    .stat-card {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  
+    .stat-card .card-body {
+      padding: 15px;
+    }
+  
+    .stat-card h4 {
+      font-size: 1.2rem;
+    }
+  
+    .stat-card p {
+      font-size: 1.5rem;
+    }
+  }
